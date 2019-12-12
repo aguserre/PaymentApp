@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C5A52CD422E3E6D20110AA11C145FF16"
+               BlueprintIdentifier = "E7410AA4B2C612837D121E8DA8718919"
                BuildableName = "Pods_PaymentApp.framework"
                BlueprintName = "Pods-PaymentApp"
                ReferencedContainer = "container:Pods.xcodeproj">

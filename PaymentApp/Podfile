@@ -6,5 +6,6 @@ target 'PaymentApp' do
   
   pod 'Alamofire'
   pod 'ObjectMapper'
-
+  pod 'Kingfisher'
+  
 end
