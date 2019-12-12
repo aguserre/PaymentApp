@@ -10,11 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var currenciCodeTextField: UITextField!
+    
+    var amount = 0
+    
+    lazy var numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        currenciCodeTextField.delegate = self
+    }
+    func updateTextField() -> String? {
+        let number = Double(amount/100) + Double(amount%100)/100
+        return numberFormatter.string(from: NSNumber(value: number))
     }
 
 
 }
 
+extension ViewController : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let character = Int(string){
+            amount = amount * 10 + character
+            currenciCodeTextField.text = updateTextField()
+        }
+        if string == ""{
+            amount = amount/10
+            currenciCodeTextField.text = updateTextField()
+        }
+        return false
+    }
+    
+}
