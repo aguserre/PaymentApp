@@ -11,11 +11,11 @@ import Alamofire
 
 class PaymentMethodDAO {
     
-    func getPreference(completion: @escaping (String) -> Void) {
+    func getPreference(completion: @escaping (PaymentMethod) -> Void) {
         Alamofire.request(PAYMENT_METHODS).responseJSON { (response) in
             if let json = response.result.value as? [String: AnyObject] {
-                if let joke = json["preferenceID"] as? String {
-                    completion(joke)
+                if let paymentMethod = json["preferenceID"] as? String {
+                    completion(paymentMethod)
                 }
             }
         }
