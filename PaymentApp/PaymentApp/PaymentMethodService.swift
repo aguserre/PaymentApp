@@ -10,10 +10,10 @@ import UIKit
 
 class PaymentMethodService {
 
-    func getPreference(completion: @escaping (String) -> Void) {
+    func getPaymentMethod(parameters:[String:Any], completion: @escaping ([PaymentMethod]) -> Void) {
         let dao = PaymentMethodDAO()
-        dao.getPreference { (preferenceID) in
-            completion(preferenceID)
+        dao.getPaymentMethod(parameters: parameters) { (method) in
+            completion(method)
         }
     }
 

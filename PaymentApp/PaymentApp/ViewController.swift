@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var currenciCodeTextField: UITextField!
+    @IBOutlet weak var nextStepButton: UIButton!
+    
     var preferenceID = ""
     var amount = 0
     lazy var numberFormatter: NumberFormatter = {
@@ -30,6 +32,12 @@ class ViewController: UIViewController {
         return numberFormatter.string(from: NSNumber(value: number))
     }
     
+    @IBAction func goToPaymentMethod(_ sender: Any) {
+        let paymentMethodViewController = PaymentMethodsTableViewController()
+        paymentMethodViewController.amount = amount
+        
+        navigationController?.pushViewController(paymentMethodViewController, animated: true)
+    }
     
     
     

@@ -16,6 +16,7 @@
 		80DFB80023A288040011353D /* PaymentMethodDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB7FF23A288040011353D /* PaymentMethodDAO.swift */; };
 		80DFB80323A28F2E0011353D /* ConstantUrlApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */; };
 		80DFB80523A291860011353D /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB80423A291860011353D /* PaymentMethod.swift */; };
+		80DFB80723A2B19E0011353D /* PaymentMethodsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */; };
 		91F76FCAAF81973DF001A9B0 /* Pods_PaymentApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE10345949922D32417C947 /* Pods_PaymentApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		80DFB7FF23A288040011353D /* PaymentMethodDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodDAO.swift; sourceTree = "<group>"; };
 		80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantUrlApi.swift; sourceTree = "<group>"; };
 		80DFB80423A291860011353D /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
+				80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80DFB80023A288040011353D /* PaymentMethodDAO.swift in Sources */,
+				80DFB80723A2B19E0011353D /* PaymentMethodsTableViewController.swift in Sources */,
 				0F2CA18123A1B13D00986AF9 /* ViewController.swift in Sources */,
 				0F2CA17F23A1B13D00986AF9 /* AppDelegate.swift in Sources */,
 				80DFB80523A291860011353D /* PaymentMethod.swift in Sources */,
