@@ -11,9 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var currenciCodeTextField: UITextField!
-    
+    var preferenceID = ""
     var amount = 0
-    
     lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -25,13 +24,19 @@ class ViewController: UIViewController {
         
         currenciCodeTextField.delegate = self
     }
+    
     func updateTextField() -> String? {
         let number = Double(amount/100) + Double(amount%100)/100
         return numberFormatter.string(from: NSNumber(value: number))
     }
-
-
+    
+    
+    
+    
 }
+
+
+
 
 extension ViewController : UITextFieldDelegate {
     
