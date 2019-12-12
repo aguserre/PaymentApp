@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currenciCodeTextField: UITextField!
     @IBOutlet weak var nextStepButton: UIButton!
     
-    var preferenceID = ""
+    var paymentMethod: [PaymentMethod]?
     var amount = 0
     lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -23,7 +23,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let parameters = ["public_key":PUBLIC_KEY_API]
+        let service = PaymentMethodService()
+        service.getPaymentMethod(parameters: parameters) { (array) in
+            self.paymentMethod = array
+        }
         currenciCodeTextField.delegate = self
     }
     
@@ -35,6 +39,9 @@ class ViewController: UIViewController {
     @IBAction func goToPaymentMethod(_ sender: Any) {
         let paymentMethodViewController = PaymentMethodsTableViewController()
         paymentMethodViewController.amount = amount
+        if let paymentMethods = paymentMethod {
+            paymentMethodViewController.paymentMethod = paymentMethods
+        }
         
         navigationController?.pushViewController(paymentMethodViewController, animated: true)
     }
@@ -42,9 +49,6 @@ class ViewController: UIViewController {
     
     
 }
-
-
-
 
 extension ViewController : UITextFieldDelegate {
     

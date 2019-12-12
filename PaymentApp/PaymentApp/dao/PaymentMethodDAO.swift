@@ -16,10 +16,12 @@ class PaymentMethodDAO {
             
             if let json = response.result.value as? [[String: Any]] {
                 var arrayPaymentsMethod = [PaymentMethod]()
+                
                 for jsonPayMethod in json{
                     if let payObject = PaymentMethod(JSON: jsonPayMethod) {
                         arrayPaymentsMethod.append(payObject)
                     }
+                    
                 }
                 completion(arrayPaymentsMethod)
             } else {

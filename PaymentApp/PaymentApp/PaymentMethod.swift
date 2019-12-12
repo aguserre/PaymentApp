@@ -26,17 +26,17 @@ class PaymentMethod: Mappable {
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        id <- map["card_number"]
-        name <- map["bin"]
-        paymentTypeId <- map["security_code"]
-        status <- map["card_number"]
-        secureThumbnail <- map["bin"]
-        thumbnail <- map["security_code"]
-        deferredCapture <- map["card_number"]
-        settings <- map["bin"]
-        minAllowedAmount <- map["security_code"]
-        maxAllowedAmount <- map["card_number"]
-        accreditationTime <- map["bin"]
+        id <- map["id"]
+        name <- map["name"]
+        paymentTypeId <- map["payment_type_id"]
+        status <- map["status"]
+        secureThumbnail <- map["secure_thumbnail"]
+        thumbnail <- map["thumbnail"]
+        deferredCapture <- map["deferred_capture"]
+        settings <- map["settings"]
+        minAllowedAmount <- map["min_allowed_amount"]
+        maxAllowedAmount <- map["min_allowed_amount"]
+        accreditationTime <- map["accreditation_time"]
     }
 }
 

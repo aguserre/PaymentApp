@@ -7,47 +7,63 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PaymentMethodsTableViewController: UITableViewController {
     
     var amount: Int?
-    var paymentMethod: [PaymentMethod]?
+    var paymentMethod: [PaymentMethod] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let parameters = ["public_key":PUBLIC_KEY_API]
-        let service = PaymentMethodService()
-        service.getPaymentMethod(parameters: parameters) { (array) in
-            self.paymentMethod = array
-        }
+        let nib = UINib.init(nibName: "PaymentMethodCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "PaymentMethodCell")
+
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if let rows = paymentMethod?.count{
-            return rows
-        }else{
+    
+        return 1
+        
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if paymentMethod.count > 0 {
+            return paymentMethod.count
+        } else {
             return 1
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        if paymentMethod.count == 0 {
+            return configureEmptyCell(indexPath: indexPath)
+        } else {
+            return configurePaymentMethodCell(indexPath: indexPath)
+        }
+    }
+    
+    func configurePaymentMethodCell(indexPath: IndexPath) ->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentMethodCell", for: indexPath) as! PaymentMethodCell
+        cell.frame(forAlignmentRect: .zero)
+        if let imageString = paymentMethod[indexPath.row].secureThumbnail {
+            let url = URL(string: imageString)
+            cell.cardImageView.kf.setImage(with: url)
+        }
         return cell
     }
-    */
-
+    
+    
+    
+    func configureEmptyCell(indexPath: IndexPath) ->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentMethodCell", for: indexPath) as! PaymentMethodCell
+        
+        return cell
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

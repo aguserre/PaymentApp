@@ -1,5 +1,5 @@
 //
-//  PaymentMethodTableViewCell.swift
+//  PaymentMethodCell.swift
 //  PaymentApp
 //
 //  Created by Agustín Errecalde on 12/12/2019.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class PaymentMethodTableViewCell: UITableViewCell {
-
+class PaymentMethodCell: UITableViewCell {
+    @IBOutlet weak var backgroundCircleView: UIView!
+    @IBOutlet weak var cardImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
