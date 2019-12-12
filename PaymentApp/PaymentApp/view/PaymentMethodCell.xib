@@ -10,30 +10,54 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="PaymentMethodCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentMethodCell" rowHeight="90" id="KGk-i7-Jjw" customClass="PaymentMethodCell" customModule="PaymentApp" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="PaymentMethodCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentMethodCell" id="KGk-i7-Jjw" customClass="PaymentMethodCell" customModule="PaymentApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="380" height="90"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="380" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6I-5i-T5G">
-                        <rect key="frame" x="20" y="15" width="60" height="60"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xc-5e-Jd1">
+                        <rect key="frame" x="10" y="10" width="360" height="70"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WT-gU-czh">
-                                <rect key="frame" x="8" y="9" width="44" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6I-5i-T5G">
+                                <rect key="frame" x="15" y="15" width="40" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0WT-gU-czh">
+                                        <rect key="frame" x="3" y="10" width="35" height="20"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0WT-gU-czh" firstAttribute="top" secondItem="P6I-5i-T5G" secondAttribute="top" constant="10" id="57c-Ea-fCN"/>
+                                    <constraint firstAttribute="trailing" secondItem="0WT-gU-czh" secondAttribute="trailing" constant="2" id="M2e-5e-jHv"/>
+                                    <constraint firstAttribute="width" constant="40" id="djr-GS-dmc"/>
+                                    <constraint firstItem="0WT-gU-czh" firstAttribute="leading" secondItem="P6I-5i-T5G" secondAttribute="leading" constant="3" id="j6V-en-RUh"/>
+                                    <constraint firstAttribute="bottom" secondItem="0WT-gU-czh" secondAttribute="bottom" constant="10" id="qzj-c8-IUh"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="P6I-5i-T5G" firstAttribute="top" secondItem="5xc-5e-Jd1" secondAttribute="top" constant="15" id="8bj-Ga-pz5"/>
+                            <constraint firstAttribute="bottom" secondItem="P6I-5i-T5G" secondAttribute="bottom" constant="15" id="A4o-sl-JvV"/>
+                            <constraint firstItem="P6I-5i-T5G" firstAttribute="leading" secondItem="5xc-5e-Jd1" secondAttribute="leading" constant="15" id="h3G-UA-edU"/>
+                        </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="5xc-5e-Jd1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="1ig-Gg-H2R"/>
+                    <constraint firstAttribute="bottom" secondItem="5xc-5e-Jd1" secondAttribute="bottom" constant="10" id="GO5-da-gHX"/>
+                    <constraint firstAttribute="trailing" secondItem="5xc-5e-Jd1" secondAttribute="trailing" constant="10" id="kOs-W7-BaY"/>
+                    <constraint firstItem="5xc-5e-Jd1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="s2J-Z0-dtK"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backgroundCircleView" destination="P6I-5i-T5G" id="J3a-XA-CiU"/>
                 <outlet property="cardImageView" destination="0WT-gU-czh" id="nAO-3T-jmn"/>
+                <outlet property="contentBackgroundView" destination="5xc-5e-Jd1" id="wIb-rg-G42"/>
             </connections>
             <point key="canvasLocation" x="181.15942028985509" y="174.10714285714286"/>
         </tableViewCell>

@@ -18,7 +18,7 @@ class PaymentMethodsTableViewController: UITableViewController {
         super.viewDidLoad()
         let nib = UINib.init(nibName: "PaymentMethodCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PaymentMethodCell")
-
+        tableView.backgroundColor = UIColor.gray
     }
 
     // MARK: - Table view data source
