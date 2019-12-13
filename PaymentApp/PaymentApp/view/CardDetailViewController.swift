@@ -11,7 +11,9 @@ import UIKit
 class CardDetailViewController: UIViewController {
     @IBOutlet weak var handleArea: UIView!
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var imageHandle: UIImageView!
+    @IBOutlet weak var methodLabel: UILabel!
+    @IBOutlet weak var methodView: UIView!
+    @IBOutlet weak var amountView: UIView!
     
 
     }

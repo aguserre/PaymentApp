@@ -23,7 +23,7 @@ class BanksViewController: UIViewController {
     var cardViewDetailController: CardDetailViewController!
     var visualEfectView: UIVisualEffectView!
     
-    let cardHeight: CGFloat = 400
+    let cardHeight: CGFloat = 300
     let cardHandleAreaHeight: CGFloat = 65
     
     var cardVisible = false
@@ -56,6 +56,20 @@ class BanksViewController: UIViewController {
         
         cardViewDetailController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight, width: self.view.bounds.width, height: cardHeight)
         cardViewDetailController.view.clipsToBounds = true
+        cardViewDetailController.amountLabel.text = self.amountString
+        cardViewDetailController.methodLabel.text = self.paymentMethod?.name
+        
+        cardViewDetailController.methodView.layer.cornerRadius = 60
+        cardViewDetailController.methodView.layer.shadowOpacity = 0.8
+        cardViewDetailController.methodView.layer.shadowOffset = .zero
+        cardViewDetailController.methodView.layer.shadowRadius = 10
+        cardViewDetailController.methodView.layer.masksToBounds = false
+        
+        cardViewDetailController.amountView.layer.cornerRadius = 60
+        cardViewDetailController.amountView.layer.shadowOpacity = 0.8
+        cardViewDetailController.amountView.layer.shadowOffset = .zero
+        cardViewDetailController.amountView.layer.shadowRadius = 10
+        cardViewDetailController.amountView.layer.masksToBounds = false
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BanksViewController.handleCardTap(recognizer:)))
         
