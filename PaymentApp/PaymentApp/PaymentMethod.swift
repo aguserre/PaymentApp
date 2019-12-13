@@ -35,7 +35,7 @@ class PaymentMethod: Mappable {
         deferredCapture <- map["deferred_capture"]
         settings <- map["settings"]
         minAllowedAmount <- map["min_allowed_amount"]
-        maxAllowedAmount <- map["min_allowed_amount"]
+        maxAllowedAmount <- map["max_allowed_amount"]
         accreditationTime <- map["accreditation_time"]
     }
 }

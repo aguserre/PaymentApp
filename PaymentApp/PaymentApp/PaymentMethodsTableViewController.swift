@@ -70,7 +70,7 @@ class PaymentMethodsTableViewController: UITableViewController {
         if let minAmount = paymentMethod[indexPath.row].minAllowedAmount{
             cell.minAllowedAmountLabel.text = intToCurrency(number: minAmount)
         }
-        if let maxAmount = paymentMethod[indexPath.row].minAllowedAmount{
+        if let maxAmount = paymentMethod[indexPath.row].maxAllowedAmount{
             cell.maxAllowedAmountLabel.text = intToCurrency(number: maxAmount)
         }
 
