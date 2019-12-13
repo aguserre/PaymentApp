@@ -19,38 +19,52 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="Mne-9T-8g3">
                                 <rect key="frame" x="90" y="372.5" width="234" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-TG-IW9">
                                 <rect key="frame" x="0.0" y="736" width="414" height="160"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZM-xW-r85">
-                                        <rect key="frame" x="143" y="16" width="128" height="63"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZM-xW-r85">
+                                        <rect key="frame" x="167" y="-16" width="80" height="80"/>
                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="63" id="8kC-eW-deQ"/>
-                                            <constraint firstAttribute="height" constant="63" id="XDK-B3-aIg"/>
+                                            <constraint firstAttribute="width" constant="80" id="le8-2L-wAI"/>
+                                            <constraint firstAttribute="height" constant="80" id="xAw-SX-FUd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
-                                        <state key="normal" title="Chose method">
+                                        <state key="normal" image="card">
                                             <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="goToPaymentMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o6x-CC-DZz"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz4-5i-4hh">
+                                        <rect key="frame" x="178" y="72" width="58" height="19"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="vZM-xW-r85" firstAttribute="leading" secondItem="YdI-TG-IW9" secondAttribute="leading" constant="143" id="7ET-LY-bA9"/>
+                                    <constraint firstAttribute="trailing" secondItem="dz4-5i-4hh" secondAttribute="trailing" constant="178" id="9Q4-FH-2Iu"/>
+                                    <constraint firstItem="dz4-5i-4hh" firstAttribute="top" secondItem="vZM-xW-r85" secondAttribute="bottom" constant="8" id="CfP-D5-CHs"/>
+                                    <constraint firstAttribute="trailing" secondItem="vZM-xW-r85" secondAttribute="trailing" constant="167" id="WKD-zH-S2G"/>
                                     <constraint firstAttribute="height" constant="160" id="e1i-fq-Glp"/>
-                                    <constraint firstAttribute="trailing" secondItem="vZM-xW-r85" secondAttribute="trailing" constant="143" id="snU-IY-HUo"/>
-                                    <constraint firstItem="vZM-xW-r85" firstAttribute="top" secondItem="YdI-TG-IW9" secondAttribute="top" constant="16" id="vA6-Pz-0UU"/>
+                                    <constraint firstItem="vZM-xW-r85" firstAttribute="leading" secondItem="YdI-TG-IW9" secondAttribute="leading" constant="167" id="q8A-P9-5Eo"/>
+                                    <constraint firstItem="vZM-xW-r85" firstAttribute="top" secondItem="YdI-TG-IW9" secondAttribute="top" constant="-16" id="vA6-Pz-0UU"/>
+                                    <constraint firstItem="dz4-5i-4hh" firstAttribute="leading" secondItem="YdI-TG-IW9" secondAttribute="leading" constant="178" id="zTC-g2-UIu"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select payment amount" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTY-DF-ZUx">
                                 <rect key="frame" x="46" y="234" width="323" height="83.5"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHG-ra-14c">
+                                <rect key="frame" x="189" y="686" width="36" height="19"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -68,6 +82,9 @@
                             <constraint firstItem="YdI-TG-IW9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ylq-Aa-lkO"/>
                             <constraint firstItem="YdI-TG-IW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aTm-8y-gG3"/>
                             <constraint firstAttribute="bottom" secondItem="YdI-TG-IW9" secondAttribute="bottom" id="esq-j4-jwu"/>
+                            <constraint firstItem="vZM-xW-r85" firstAttribute="top" secondItem="MHG-ra-14c" secondAttribute="bottom" constant="15" id="f6e-7T-EKZ"/>
+                            <constraint firstItem="MHG-ra-14c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="189" id="fNc-yB-1zf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MHG-ra-14c" secondAttribute="trailing" constant="189" id="fSR-J1-mzO"/>
                             <constraint firstItem="YdI-TG-IW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="heu-TE-9uF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MTY-DF-ZUx" secondAttribute="trailing" constant="45" id="o2C-Pm-yts"/>
                             <constraint firstItem="Mne-9T-8g3" firstAttribute="top" secondItem="MTY-DF-ZUx" secondAttribute="bottom" constant="55" id="qok-fl-Wee"/>
@@ -130,4 +147,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="card" width="750" height="750"/>
+    </resources>
 </document>

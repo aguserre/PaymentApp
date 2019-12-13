@@ -15,21 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var tabBarView: UIView!
     
     var paymentMethod: [PaymentMethod]?
+    
     var amount = 0
     lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "en_US")
         return formatter
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currenciCodeTextField.delegate = self
+        currenciCodeTextField.placeholder = updateTextField()
         let parameters = ["public_key":PUBLIC_KEY_API]
         let service = PaymentMethodService()
         service.getPaymentMethod(parameters: parameters) { (array) in
             self.paymentMethod = array
         }
-        currenciCodeTextField.delegate = self
         configureNavigationBar()
         configureTabBar()
         configureButonNext()
@@ -54,7 +57,7 @@ class ViewController: UIViewController {
     }
     
     func configureButonNext(){
-        self.nextStepButton.layer.cornerRadius = 15
+        self.nextStepButton.layer.cornerRadius = 40
         self.nextStepButton.layer.shadowRadius = 10
         self.nextStepButton?.layer.shadowOpacity = 0.8
         self.nextStepButton?.layer.masksToBounds = false
