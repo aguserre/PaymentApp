@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class PaymentMethod: Mappable {
+class PaymentMethodModel: Mappable {
     var id: String?
     var name: String?
     var paymentTypeId: String?
@@ -17,7 +17,7 @@ class PaymentMethod: Mappable {
     var secureThumbnail: String?
     var thumbnail: String?
     var deferredCapture: String?
-    var settings: [Settings]?
+    var settings: [SettingsModel]?
     var minAllowedAmount: Int?
     var maxAllowedAmount: Int?
     var accreditationTime: Int?
@@ -40,10 +40,10 @@ class PaymentMethod: Mappable {
     }
 }
 
-class Settings: Mappable{
-    var cardNumber: CardNumber?
-    var bin: Bin?
-    var securityCode: SecurityCode?
+class SettingsModel: Mappable{
+    var cardNumber: CardNumberModel?
+    var bin: BinModel?
+    var securityCode: SecurityCodeModel?
     
     init(){}
     required init?(map: Map) {}
@@ -55,7 +55,7 @@ class Settings: Mappable{
     }
 }
 
-class CardNumber: Mappable{
+class CardNumberModel: Mappable{
     var validation: String?
     var length: String?
     
@@ -68,7 +68,7 @@ class CardNumber: Mappable{
     }
 }
 
-class Bin: Mappable{
+class BinModel: Mappable{
     var pattern: String?
     var installmentsPattern: String?
     var exclusionPattern: String?
@@ -83,7 +83,7 @@ class Bin: Mappable{
     }
 }
 
-class SecurityCode: Mappable{
+class SecurityCodeModel: Mappable{
     var length: String?
     var cardLocation: String?
     var mode: String?

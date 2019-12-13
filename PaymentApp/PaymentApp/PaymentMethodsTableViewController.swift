@@ -19,7 +19,7 @@ class PaymentMethodsTableViewController: UITableViewController {
     }()
     var amount: Int?
     var amountString : String?
-    var paymentMethod: [PaymentMethod] = []
+    var paymentMethod: [PaymentMethodModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

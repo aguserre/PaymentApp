@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextStepButton: UIButton!
     @IBOutlet weak var tabBarView: UIView!
     
-    var paymentMethod: [PaymentMethod]?
+    var paymentMethod: [PaymentMethodModel]?
     
     var amount = 0
     lazy var numberFormatter: NumberFormatter = {

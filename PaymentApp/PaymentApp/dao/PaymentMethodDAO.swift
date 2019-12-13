@@ -11,14 +11,14 @@ import Alamofire
 
 class PaymentMethodDAO {
     
-    func getPaymentMethod(parameters: [String: Any] ,completion: @escaping ([PaymentMethod]) -> Void) {
+    func getPaymentMethod(parameters: [String: Any] ,completion: @escaping ([PaymentMethodModel]) -> Void) {
         Alamofire.request(PAYMENT_METHODS, method: .get, parameters: parameters).responseJSON { (response) in
             
             if let json = response.result.value as? [[String: Any]] {
-                var arrayPaymentsMethod = [PaymentMethod]()
+                var arrayPaymentsMethod = [PaymentMethodModel]()
                 
                 for jsonPayMethod in json{
-                    if let payObject = PaymentMethod(JSON: jsonPayMethod) {
+                    if let payObject = PaymentMethodModel(JSON: jsonPayMethod) {
                         arrayPaymentsMethod.append(payObject)
                     }
                     
