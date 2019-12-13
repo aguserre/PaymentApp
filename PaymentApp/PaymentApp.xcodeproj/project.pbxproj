@@ -81,12 +81,12 @@
 				80DFB7FB23A287D00011353D /* service */,
 				0F2CA17E23A1B13D00986AF9 /* AppDelegate.swift */,
 				0F2CA18023A1B13D00986AF9 /* ViewController.swift */,
+				80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */,
 				0F2CA18223A1B13D00986AF9 /* Main.storyboard */,
 				0F2CA18523A1B13E00986AF9 /* Assets.xcassets */,
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
-				80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
