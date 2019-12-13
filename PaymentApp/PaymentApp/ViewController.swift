@@ -29,6 +29,14 @@ class ViewController: UIViewController {
             self.paymentMethod = array
         }
         currenciCodeTextField.delegate = self
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
+        self.navigationController?.navigationBar.layer.cornerRadius = 10
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationItem.title = "Select amount"
+        self.navigationItem.prompt = ""
     }
     
     func updateTextField() -> String? {
