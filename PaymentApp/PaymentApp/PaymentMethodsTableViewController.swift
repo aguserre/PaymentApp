@@ -11,6 +11,12 @@ import Kingfisher
 
 class PaymentMethodsTableViewController: UITableViewController {
     
+    lazy var numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "en_US")
+        return formatter
+    }()
     var amount: Int?
     var amountString : String?
     var paymentMethod: [PaymentMethod] = []
@@ -20,6 +26,7 @@ class PaymentMethodsTableViewController: UITableViewController {
         let nib = UINib.init(nibName: "PaymentMethodCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PaymentMethodCell")
         tableView.backgroundColor = UIColor.gray
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
         self.navigationItem.title = amountString
         self.navigationItem.prompt = "Amount"
     }
@@ -27,7 +34,6 @@ class PaymentMethodsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
     
         return 1
         
@@ -57,32 +63,30 @@ class PaymentMethodsTableViewController: UITableViewController {
             let url = URL(string: imageString)
             cell.cardImageView.kf.setImage(with: url)
         }
+        cell.titleMethodLabel.text = paymentMethod[indexPath.row].name
+        cell.typeMethodLabel.text = paymentMethod[indexPath.row].paymentTypeId
+        //No especifica como poder formatear el Int que envia la API
+        cell.acreditionTimeLabel.text = "Inmediatly"
+        if let minAmount = paymentMethod[indexPath.row].minAllowedAmount{
+            cell.minAllowedAmountLabel.text = intToCurrency(number: minAmount)
+        }
+        if let maxAmount = paymentMethod[indexPath.row].minAllowedAmount{
+            cell.maxAllowedAmountLabel.text = intToCurrency(number: maxAmount)
+        }
+
         return cell
     }
-    
-    
     
     func configureEmptyCell(indexPath: IndexPath) ->UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentMethodCell", for: indexPath) as! PaymentMethodCell
         
         return cell
     }
-
-    func getUseMoney (amountDouble: Double, f: Int = 2) -> String? {
-        
-        var stringAmount: String?
-        
-        let formatter = Foundation.NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.minimumFractionDigits = f
-        formatter.maximumFractionDigits = f
-        formatter.locale = Locale(identifier: "es_AR")
-        
-        stringAmount = formatter.string(from: NSNumber(value: amountDouble)) ?? "" // "$123.44"
-        
-        return stringAmount
+    
+    func intToCurrency(number: Int) -> String? {
+        let stringAmount = Double(number/100) + Double(number%100)/100
+        return numberFormatter.string(from: NSNumber(value: stringAmount))
     }
-
 }
 
 

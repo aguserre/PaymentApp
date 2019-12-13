@@ -70,11 +70,10 @@ class ViewController: UIViewController {
     
     @IBAction func goToPaymentMethod(_ sender: Any) {
         let paymentMethodViewController = PaymentMethodsTableViewController()
-        let stringAmount = Double(amount/100) + Double(amount%100)/100
         
+        let stringAmount = Double(amount/100) + Double(amount%100)/100
         paymentMethodViewController.amountString = numberFormatter.string(from: NSNumber(value: stringAmount))
         paymentMethodViewController.amount = amount
-        
         
         if let paymentMethods = paymentMethod {
             paymentMethodViewController.paymentMethod = paymentMethods
@@ -82,12 +81,9 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(paymentMethodViewController, animated: true)
     }
     
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
     
 }
 
