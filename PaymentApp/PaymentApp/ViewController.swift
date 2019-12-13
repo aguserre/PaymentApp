@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var currenciCodeTextField: UITextField!
     @IBOutlet weak var nextStepButton: UIButton!
+    @IBOutlet weak var tabBarView: UIView!
     
     var paymentMethod: [PaymentMethod]?
     var amount = 0
@@ -29,14 +30,34 @@ class ViewController: UIViewController {
             self.paymentMethod = array
         }
         currenciCodeTextField.delegate = self
+        configureNavigationBar()
+        configureTabBar()
+        configureButonNext()
+    }
+    
+    func configureNavigationBar(){
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.navigationController?.navigationBar.layer.shadowRadius = 4.0
         self.navigationController?.navigationBar.layer.cornerRadius = 10
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
         self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationItem.title = "Select amount"
-        self.navigationItem.prompt = ""
+        self.navigationItem.title = "Payment App"
+        self.navigationItem.prompt = "Welcome"
+    }
+    
+    func configureTabBar(){
+        self.tabBarView.layer.cornerRadius = 30
+        self.tabBarView.layer.shadowRadius = 4.0
+        self.tabBarView?.layer.shadowOpacity = 0.8
+        self.tabBarView?.layer.masksToBounds = false
+    }
+    
+    func configureButonNext(){
+        self.nextStepButton.layer.cornerRadius = 15
+        self.nextStepButton.layer.shadowRadius = 10
+        self.nextStepButton?.layer.shadowOpacity = 0.8
+        self.nextStepButton?.layer.masksToBounds = false
     }
     
     func updateTextField() -> String? {
@@ -50,10 +71,11 @@ class ViewController: UIViewController {
         if let paymentMethods = paymentMethod {
             paymentMethodViewController.paymentMethod = paymentMethods
         }
-        
         navigationController?.pushViewController(paymentMethodViewController, animated: true)
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     
 }

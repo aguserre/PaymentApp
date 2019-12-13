@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uMq-mg-h8V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uMq-mg-h8V">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,27 +16,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mne-9T-8g3">
-                                <rect key="frame" x="20" y="233" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="Mne-9T-8g3">
+                                <rect key="frame" x="90" y="372.5" width="234" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZM-xW-r85">
-                                <rect key="frame" x="184" y="297" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="goToPaymentMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o6x-CC-DZz"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-TG-IW9">
+                                <rect key="frame" x="0.0" y="736" width="414" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZM-xW-r85">
+                                        <rect key="frame" x="143" y="16" width="128" height="63"/>
+                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="63" id="8kC-eW-deQ"/>
+                                            <constraint firstAttribute="height" constant="63" id="XDK-B3-aIg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                        <state key="normal" title="Chose method">
+                                            <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToPaymentMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o6x-CC-DZz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vZM-xW-r85" firstAttribute="leading" secondItem="YdI-TG-IW9" secondAttribute="leading" constant="143" id="7ET-LY-bA9"/>
+                                    <constraint firstAttribute="height" constant="160" id="e1i-fq-Glp"/>
+                                    <constraint firstAttribute="trailing" secondItem="vZM-xW-r85" secondAttribute="trailing" constant="143" id="snU-IY-HUo"/>
+                                    <constraint firstItem="vZM-xW-r85" firstAttribute="top" secondItem="YdI-TG-IW9" secondAttribute="top" constant="16" id="vA6-Pz-0UU"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select payment amount" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTY-DF-ZUx">
+                                <rect key="frame" x="46" y="234" width="323" height="83.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vZM-xW-r85" firstAttribute="top" secondItem="Mne-9T-8g3" secondAttribute="bottom" constant="30" id="0BR-pd-7Jy"/>
-                            <constraint firstItem="vZM-xW-r85" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="184" id="4wi-hp-ZgT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vZM-xW-r85" secondAttribute="trailing" constant="184" id="6Jx-yV-pdm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mne-9T-8g3" secondAttribute="trailing" constant="20" id="NR3-0i-36D"/>
-                            <constraint firstItem="Mne-9T-8g3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="145" id="VgL-Vv-CDo"/>
-                            <constraint firstItem="Mne-9T-8g3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="d5r-bs-cbE"/>
+                            <constraint firstItem="MTY-DF-ZUx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="AyA-e5-88i"/>
+                            <constraint firstItem="YdI-TG-IW9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B8M-ru-9J2"/>
+                            <constraint firstItem="YdI-TG-IW9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Bd3-qE-qMC"/>
+                            <constraint firstItem="Mne-9T-8g3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="L94-44-cEA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mne-9T-8g3" secondAttribute="trailing" constant="90" id="MiH-tQ-3XD"/>
+                            <constraint firstItem="MTY-DF-ZUx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="146" id="Myz-X9-jHB"/>
+                            <constraint firstItem="YdI-TG-IW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ObI-27-AjA"/>
+                            <constraint firstAttribute="bottom" secondItem="YdI-TG-IW9" secondAttribute="bottom" id="Ufe-Nl-seL"/>
+                            <constraint firstItem="YdI-TG-IW9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ylq-Aa-lkO"/>
+                            <constraint firstItem="YdI-TG-IW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aTm-8y-gG3"/>
+                            <constraint firstAttribute="bottom" secondItem="YdI-TG-IW9" secondAttribute="bottom" id="esq-j4-jwu"/>
+                            <constraint firstItem="YdI-TG-IW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="heu-TE-9uF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MTY-DF-ZUx" secondAttribute="trailing" constant="45" id="o2C-Pm-yts"/>
+                            <constraint firstItem="Mne-9T-8g3" firstAttribute="top" secondItem="MTY-DF-ZUx" secondAttribute="bottom" constant="55" id="qok-fl-Wee"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -44,6 +78,7 @@
                     <connections>
                         <outlet property="currenciCodeTextField" destination="Mne-9T-8g3" id="zmc-Z2-STh"/>
                         <outlet property="nextStepButton" destination="vZM-xW-r85" id="VbI-hB-VBh"/>
+                        <outlet property="tabBarView" destination="YdI-TG-IW9" id="yhT-RH-9MU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
