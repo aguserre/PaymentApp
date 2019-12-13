@@ -60,12 +60,13 @@ class PaymentMethodsTableViewController: UITableViewController {
         if paymentMethod.count == 0 {
             return
         } else {
-            let banksViewController = BanksViewController()
-            banksViewController.amount = amount
-            banksViewController.amountString = amountString
-            banksViewController.paymentMethod = paymentMethod[indexPath.row]
+            let banksViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BanksViewController") as? BanksViewController
+            banksViewController?.amount = amount
+            banksViewController?.amountString = amountString
+            banksViewController?.paymentMethod = paymentMethod[indexPath.row]
+
+            navigationController?.pushViewController(banksViewController!, animated: true)
             
-            navigationController?.pushViewController(banksViewController, animated: true)
         }
     }
     

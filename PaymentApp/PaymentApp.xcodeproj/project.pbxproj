@@ -16,6 +16,8 @@
 		8053120C23A3CBCD00DA0050 /* CardIssuersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */; };
 		8053120E23A3CD4200DA0050 /* CardIssuersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120D23A3CD4200DA0050 /* CardIssuersService.swift */; };
 		8053121023A3CED900DA0050 /* BanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120F23A3CED900DA0050 /* BanksViewController.swift */; };
+		808F607723A3EC7F0036661B /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F607523A3EC7F0036661B /* CardDetailViewController.swift */; };
+		808F607823A3EC7F0036661B /* CardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 808F607623A3EC7F0036661B /* CardDetailViewController.xib */; };
 		80DFB7FE23A287F60011353D /* PaymentMethodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB7FD23A287F60011353D /* PaymentMethodService.swift */; };
 		80DFB80023A288040011353D /* PaymentMethodDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB7FF23A288040011353D /* PaymentMethodDAO.swift */; };
 		80DFB80323A28F2E0011353D /* ConstantUrlApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */; };
@@ -41,6 +43,8 @@
 		8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIssuersDAO.swift; sourceTree = "<group>"; };
 		8053120D23A3CD4200DA0050 /* CardIssuersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIssuersService.swift; sourceTree = "<group>"; };
 		8053120F23A3CED900DA0050 /* BanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewController.swift; sourceTree = "<group>"; };
+		808F607523A3EC7F0036661B /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		808F607623A3EC7F0036661B /* CardDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardDetailViewController.xib; sourceTree = "<group>"; };
 		80DFB7FD23A287F60011353D /* PaymentMethodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodService.swift; sourceTree = "<group>"; };
 		80DFB7FF23A288040011353D /* PaymentMethodDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodDAO.swift; sourceTree = "<group>"; };
 		80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantUrlApi.swift; sourceTree = "<group>"; };
@@ -90,12 +94,12 @@
 				0F2CA17E23A1B13D00986AF9 /* AppDelegate.swift */,
 				0F2CA18023A1B13D00986AF9 /* ViewController.swift */,
 				80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */,
+				8053120F23A3CED900DA0050 /* BanksViewController.swift */,
 				0F2CA18223A1B13D00986AF9 /* Main.storyboard */,
 				0F2CA18523A1B13E00986AF9 /* Assets.xcassets */,
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
-				8053120F23A3CED900DA0050 /* BanksViewController.swift */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
@@ -149,6 +153,8 @@
 			children = (
 				80DFB80D23A2D5110011353D /* PaymentMethodCell.swift */,
 				80DFB80E23A2D5110011353D /* PaymentMethodCell.xib */,
+				808F607523A3EC7F0036661B /* CardDetailViewController.swift */,
+				808F607623A3EC7F0036661B /* CardDetailViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				808F607823A3EC7F0036661B /* CardDetailViewController.xib in Resources */,
 				0F2CA18923A1B13E00986AF9 /* LaunchScreen.storyboard in Resources */,
 				80DFB81023A2D5110011353D /* PaymentMethodCell.xib in Resources */,
 				0F2CA18623A1B13E00986AF9 /* Assets.xcassets in Resources */,
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				808F607723A3EC7F0036661B /* CardDetailViewController.swift in Sources */,
 				80DFB80023A288040011353D /* PaymentMethodDAO.swift in Sources */,
 				80DFB80F23A2D5110011353D /* PaymentMethodCell.swift in Sources */,
 				80DFB80723A2B19E0011353D /* PaymentMethodsTableViewController.swift in Sources */,
