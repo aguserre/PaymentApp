@@ -25,10 +25,10 @@ class PaymentMethodsTableViewController: UITableViewController {
         super.viewDidLoad()
         let nib = UINib.init(nibName: "PaymentMethodCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PaymentMethodCell")
-        tableView.backgroundColor = UIColor.gray
-        self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
-        self.navigationItem.title = amountString
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         self.navigationItem.prompt = "Amount"
+        self.navigationItem.title = amountString
     }
 
     // MARK: - Table view data source
@@ -53,6 +53,19 @@ class PaymentMethodsTableViewController: UITableViewController {
             return configureEmptyCell(indexPath: indexPath)
         } else {
             return configurePaymentMethodCell(indexPath: indexPath)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if paymentMethod.count == 0 {
+            return
+        } else {
+            let banksViewController = BanksViewController()
+            banksViewController.amount = amount
+            banksViewController.amountString = amountString
+            banksViewController.paymentMethod = paymentMethod[indexPath.row]
+            
+            navigationController?.pushViewController(banksViewController, animated: true)
         }
     }
     
@@ -87,6 +100,9 @@ class PaymentMethodsTableViewController: UITableViewController {
         let stringAmount = Double(number/100) + Double(number%100)/100
         return numberFormatter.string(from: NSNumber(value: stringAmount))
     }
+    
+    
+    
 }
 
 

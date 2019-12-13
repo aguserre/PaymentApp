@@ -15,6 +15,7 @@
 		8053120A23A3C80C00DA0050 /* CardIssuersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120923A3C80C00DA0050 /* CardIssuersModel.swift */; };
 		8053120C23A3CBCD00DA0050 /* CardIssuersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */; };
 		8053120E23A3CD4200DA0050 /* CardIssuersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120D23A3CD4200DA0050 /* CardIssuersService.swift */; };
+		8053121023A3CED900DA0050 /* BanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120F23A3CED900DA0050 /* BanksViewController.swift */; };
 		80DFB7FE23A287F60011353D /* PaymentMethodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB7FD23A287F60011353D /* PaymentMethodService.swift */; };
 		80DFB80023A288040011353D /* PaymentMethodDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB7FF23A288040011353D /* PaymentMethodDAO.swift */; };
 		80DFB80323A28F2E0011353D /* ConstantUrlApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */; };
@@ -39,6 +40,7 @@
 		8053120923A3C80C00DA0050 /* CardIssuersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIssuersModel.swift; sourceTree = "<group>"; };
 		8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIssuersDAO.swift; sourceTree = "<group>"; };
 		8053120D23A3CD4200DA0050 /* CardIssuersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIssuersService.swift; sourceTree = "<group>"; };
+		8053120F23A3CED900DA0050 /* BanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksViewController.swift; sourceTree = "<group>"; };
 		80DFB7FD23A287F60011353D /* PaymentMethodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodService.swift; sourceTree = "<group>"; };
 		80DFB7FF23A288040011353D /* PaymentMethodDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodDAO.swift; sourceTree = "<group>"; };
 		80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantUrlApi.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
+				8053120F23A3CED900DA0050 /* BanksViewController.swift */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				80DFB80523A291860011353D /* PaymentMethodModel.swift in Sources */,
 				80DFB7FE23A287F60011353D /* PaymentMethodService.swift in Sources */,
 				8053120A23A3C80C00DA0050 /* CardIssuersModel.swift in Sources */,
+				8053121023A3CED900DA0050 /* BanksViewController.swift in Sources */,
 				80DFB80323A28F2E0011353D /* ConstantUrlApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

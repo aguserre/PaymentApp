@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         currenciCodeTextField.delegate = self
         currenciCodeTextField.placeholder = updateTextField()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        
         let parameters = ["public_key":PUBLIC_KEY_API]
         let service = PaymentMethodService()
         service.getPaymentMethod(parameters: parameters) { (array) in
