@@ -123,7 +123,6 @@
         <!--Banks View Controller-->
         <scene sceneID="6oX-iO-t8G">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="au3-Wk-eq7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="BanksViewController" id="sew-Do-ww5" customClass="BanksViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vOx-lz-1kM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -132,6 +131,7 @@
                         <viewLayoutGuide key="safeArea" id="B6P-I6-P8y"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="au3-Wk-eq7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2382.608695652174" y="126.5625"/>
         </scene>

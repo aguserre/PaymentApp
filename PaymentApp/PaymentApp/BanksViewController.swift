@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BanksViewController: UIViewController {
+class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     enum CardState {
         case expanded
@@ -19,6 +19,7 @@ class BanksViewController: UIViewController {
     var amountString : String?
     var paymentMethod: PaymentMethodModel?
     var carIssuersArray: [CardIssuersModel]?
+    let picker = UIPickerView()
     
     var cardViewDetailController: CardDetailViewController!
     var visualEfectView: UIVisualEffectView!
@@ -37,13 +38,41 @@ class BanksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCard()
+        picker.delegate = self
         let parameters = ["public_key":PUBLIC_KEY_API,
                         "payment_method_id": paymentMethod?.id ?? ""]
         let service = CardIssuersService()
         service.getCardIssuers(parameters: parameters) { (array) in
             self.carIssuersArray = array
         }
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(picker)
+        
+        picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        picker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return 10
+        } else {
+            return 100
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return "First \(row)"
+        } else {
+            return "Second \(row)"
+        }
+    }
+    
+    
     
     func setupCard(){
         visualEfectView = UIVisualEffectView()
