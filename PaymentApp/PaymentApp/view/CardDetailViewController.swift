@@ -17,6 +17,8 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var amountView: UIView!
     @IBOutlet weak var rowImage: UIImageView!
     @IBOutlet weak var backRowImage: UIView!
+    @IBOutlet weak var buttonNext: UIButton!
+    @IBOutlet weak var bankName: UILabel!
     
 }
 

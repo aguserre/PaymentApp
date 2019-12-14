@@ -18,7 +18,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var amount: Int?
     var amountString : String?
     var paymentMethod: PaymentMethodModel?
-    var carIssuersArray: [CardIssuersModel]?
+    var cardIssuersArray: [CardIssuersModel]?
     let picker = UIPickerView()
     let segmentedControl = UISegmentedControl()
     @IBOutlet weak var bankLabel: UILabel!
@@ -40,16 +40,31 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCard()
-        bankLabel.text = paymentMethod?.name
         let parameters = ["public_key":PUBLIC_KEY_API,
                         "payment_method_id": paymentMethod?.id ?? ""]
         let service = CardIssuersService()
         service.getCardIssuers(parameters: parameters) { (array) in
-            self.carIssuersArray = array
+            self.cardIssuersArray = array
             if array.count > 1 {
+                if let firstName = array[0].name {
+                    self.bankLabel.text = firstName
+                }
                 self.configurePickerView()
+            } else {
+                self.bankLabel.text = self.paymentMethod?.name
             }
         }
+    }
+    
+    
+    @objc func buttonAction(sender: UIButton!) {
+        let installmentsViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "InstallmentsViewController") as? InstallmentsViewController
+        
+
+        navigationController?.pushViewController(installmentsViewController!, animated: true)
+        
+        
+        
     }
     
     func configurePickerView(){
@@ -67,15 +82,15 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return carIssuersArray?.count ?? 2
+        return cardIssuersArray?.count ?? 2
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        if carIssuersArray?.count == 0 {
+        if cardIssuersArray?.count == 0 {
             return paymentMethod?.name
         } else {
-            if let bankName = carIssuersArray?[row].name{
+            if let bankName = cardIssuersArray?[row].name{
                 return bankName
             } else {
                 return "Not Bank support"
@@ -85,14 +100,17 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if carIssuersArray?.count == 0 {
+        if cardIssuersArray?.count == 0 {
             self.view.endEditing(true)
             bankLabel.text = paymentMethod?.name
+            cardViewDetailController.bankName.text = paymentMethod?.name
         } else {
-            if let bankName = carIssuersArray?[row].name{
+            if let bankName = cardIssuersArray?[row].name{
                 bankLabel.text = bankName
+                cardViewDetailController.bankName.text = bankName
             } else {
                 bankLabel.text = paymentMethod?.name
+                cardViewDetailController.bankName.text = paymentMethod?.name
             }
         }
     }
@@ -110,25 +128,14 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         cardViewDetailController.view.clipsToBounds = true
         cardViewDetailController.amountLabel.text = self.amountString
         cardViewDetailController.methodLabel.text = self.paymentMethod?.name
+        cardViewDetailController.bankName.text = self.paymentMethod?.name
         cardViewDetailController.rowImage.image = #imageLiteral(resourceName: "upButton")
+        cardViewDetailController.buttonNext.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
-        cardViewDetailController.methodView.layer.cornerRadius = 60
-        cardViewDetailController.methodView.layer.shadowOpacity = 0.8
-        cardViewDetailController.methodView.layer.shadowOffset = .zero
-        cardViewDetailController.methodView.layer.shadowRadius = 10
-        cardViewDetailController.methodView.layer.masksToBounds = false
-        
-        cardViewDetailController.backRowImage.layer.cornerRadius = 15
-        cardViewDetailController.backRowImage.layer.shadowOpacity = 0.8
-        cardViewDetailController.backRowImage.layer.shadowOffset = .zero
-        cardViewDetailController.backRowImage.layer.shadowRadius = 5
-        cardViewDetailController.backRowImage.layer.masksToBounds = false
-        
-        cardViewDetailController.amountView.layer.cornerRadius = 60
-        cardViewDetailController.amountView.layer.shadowOpacity = 0.8
-        cardViewDetailController.amountView.layer.shadowOffset = .zero
-        cardViewDetailController.amountView.layer.shadowRadius = 10
-        cardViewDetailController.amountView.layer.masksToBounds = false
+        self.configureVisualViews(view: cardViewDetailController.buttonNext, cornerRadius: 10, shadowOpacity: 0.8, shadowRadius: 5, shadowOffset: .zero, masksToBounds: false)
+        self.configureVisualViews(view: cardViewDetailController.methodView, cornerRadius: 60, shadowOpacity: 0.8, shadowRadius: 10, shadowOffset: .zero, masksToBounds: false)
+        self.configureVisualViews(view: cardViewDetailController.backRowImage, cornerRadius: 15, shadowOpacity: 0.8, shadowRadius: 5, shadowOffset: .zero, masksToBounds: false)
+        self.configureVisualViews(view: cardViewDetailController.amountView, cornerRadius: 60, shadowOpacity: 0.8, shadowRadius: 10, shadowOffset: .zero, masksToBounds: false)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BanksViewController.handleCardTap(recognizer:)))
         
@@ -136,6 +143,14 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         cardViewDetailController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         cardViewDetailController.handleArea.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    func configureVisualViews(view: UIView, cornerRadius: CGFloat, shadowOpacity: Float, shadowRadius: CGFloat, shadowOffset: CGSize, masksToBounds: Bool){
+        view.layer.cornerRadius = cornerRadius
+        view.layer.shadowOpacity = shadowOpacity
+        view.layer.shadowOffset = shadowOffset
+        view.layer.shadowRadius = shadowRadius
+        view.layer.masksToBounds = masksToBounds
     }
     
     @objc
