@@ -20,6 +20,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var paymentMethod: PaymentMethodModel?
     var carIssuersArray: [CardIssuersModel]?
     let picker = UIPickerView()
+    let segmentedControl = UISegmentedControl()
     @IBOutlet weak var bankLabel: UILabel!
     
     var cardViewDetailController: CardDetailViewController!
@@ -96,7 +97,6 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         }
     }
     
-    
     func setupCard(){
         visualEfectView = UIVisualEffectView()
         visualEfectView.frame = self.view.frame
@@ -110,12 +110,19 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         cardViewDetailController.view.clipsToBounds = true
         cardViewDetailController.amountLabel.text = self.amountString
         cardViewDetailController.methodLabel.text = self.paymentMethod?.name
+        cardViewDetailController.rowImage.image = #imageLiteral(resourceName: "upButton")
         
         cardViewDetailController.methodView.layer.cornerRadius = 60
         cardViewDetailController.methodView.layer.shadowOpacity = 0.8
         cardViewDetailController.methodView.layer.shadowOffset = .zero
         cardViewDetailController.methodView.layer.shadowRadius = 10
         cardViewDetailController.methodView.layer.masksToBounds = false
+        
+        cardViewDetailController.backRowImage.layer.cornerRadius = 15
+        cardViewDetailController.backRowImage.layer.shadowOpacity = 0.8
+        cardViewDetailController.backRowImage.layer.shadowOffset = .zero
+        cardViewDetailController.backRowImage.layer.shadowRadius = 5
+        cardViewDetailController.backRowImage.layer.masksToBounds = false
         
         cardViewDetailController.amountView.layer.cornerRadius = 60
         cardViewDetailController.amountView.layer.shadowOpacity = 0.8
@@ -129,18 +136,16 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         cardViewDetailController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         cardViewDetailController.handleArea.addGestureRecognizer(panGestureRecognizer)
-        
     }
     
     @objc
     func handleCardTap(recognizer: UITapGestureRecognizer) {
         switch recognizer.state {
-   
-        case .ended:
-            animationTransitionIsNeeded(state: nextState, duration: 0.9)
-        default:
-            break
-        }
+            case .ended:
+                animationTransitionIsNeeded(state: nextState, duration: 0.9)
+            default:
+                break
+            }
     }
     
     @objc
@@ -166,8 +171,11 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
                 switch state{
                 case .expanded :
                     self.cardViewDetailController.view.frame.origin.y = self.view.frame.height - self.cardHeight
+                    self.cardViewDetailController.rowImage.image = #imageLiteral(resourceName: "downButton")
                 case .colapsed :
                     self.cardViewDetailController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaHeight
+                    self.cardViewDetailController.rowImage.image = #imageLiteral(resourceName: "upButton")
+
                 }
             }
             frameAnimator.addCompletion { _ in

@@ -12,6 +12,7 @@
 		0F2CA18423A1B13D00986AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2CA18223A1B13D00986AF9 /* Main.storyboard */; };
 		0F2CA18623A1B13E00986AF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2CA18523A1B13E00986AF9 /* Assets.xcassets */; };
 		0F2CA18923A1B13E00986AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */; };
+		0FA815CC23A57C4F0025FE20 /* InstallmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815CB23A57C4F0025FE20 /* InstallmentModel.swift */; };
 		8053120A23A3C80C00DA0050 /* CardIssuersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120923A3C80C00DA0050 /* CardIssuersModel.swift */; };
 		8053120C23A3CBCD00DA0050 /* CardIssuersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */; };
 		8053120E23A3CD4200DA0050 /* CardIssuersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120D23A3CD4200DA0050 /* CardIssuersService.swift */; };
@@ -36,6 +37,7 @@
 		0F2CA18523A1B13E00986AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2CA18823A1B13E00986AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F2CA18A23A1B13E00986AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FA815CB23A57C4F0025FE20 /* InstallmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentModel.swift; sourceTree = "<group>"; };
 		1FE10345949922D32417C947 /* Pods_PaymentApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271B4474F267542E34327320 /* Pods-PaymentApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp.release.xcconfig"; sourceTree = "<group>"; };
 		5EE48D18980C2BCC8AF903DF /* Pods-PaymentApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				80DFB80423A291860011353D /* PaymentMethodModel.swift */,
 				8053120923A3C80C00DA0050 /* CardIssuersModel.swift */,
+				0FA815CB23A57C4F0025FE20 /* InstallmentModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				808F607723A3EC7F0036661B /* CardDetailViewController.swift in Sources */,
+				0FA815CC23A57C4F0025FE20 /* InstallmentModel.swift in Sources */,
 				80DFB80023A288040011353D /* PaymentMethodDAO.swift in Sources */,
 				80DFB80F23A2D5110011353D /* PaymentMethodCell.swift in Sources */,
 				80DFB80723A2B19E0011353D /* PaymentMethodsTableViewController.swift in Sources */,

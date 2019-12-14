@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,9 +12,11 @@
             <connections>
                 <outlet property="amountLabel" destination="mut-sT-K5F" id="uWM-K8-gCm"/>
                 <outlet property="amountView" destination="PHm-T4-BVQ" id="HNp-Yz-gT9"/>
+                <outlet property="backRowImage" destination="1ha-js-DMN" id="648-Bk-REX"/>
                 <outlet property="handleArea" destination="1AZ-NW-SLM" id="dZS-Uf-FHO"/>
                 <outlet property="methodLabel" destination="Lep-hC-df7" id="4gh-GE-9sh"/>
                 <outlet property="methodView" destination="HR7-qw-MPb" id="ghb-ab-oQi"/>
+                <outlet property="rowImage" destination="5M6-TG-InM" id="70t-0f-utg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -100,21 +102,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-NW-SLM">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ha-js-DMN">
-                            <rect key="frame" x="158" y="14" width="99" height="8"/>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ha-js-DMN">
+                            <rect key="frame" x="192" y="8" width="30" height="30"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5M6-TG-InM">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="99" id="0Id-hb-486"/>
-                                <constraint firstAttribute="height" constant="8" id="3ie-ZT-qYt"/>
+                                <constraint firstAttribute="width" constant="30" id="0Id-hb-486"/>
+                                <constraint firstAttribute="height" constant="30" id="3ie-ZT-qYt"/>
+                                <constraint firstAttribute="bottom" secondItem="5M6-TG-InM" secondAttribute="bottom" id="DPT-5A-kCA"/>
+                                <constraint firstItem="5M6-TG-InM" firstAttribute="leading" secondItem="1ha-js-DMN" secondAttribute="leading" id="cV0-hn-xgj"/>
+                                <constraint firstAttribute="trailing" secondItem="5M6-TG-InM" secondAttribute="trailing" id="hFD-ca-t6y"/>
+                                <constraint firstItem="5M6-TG-InM" firstAttribute="top" secondItem="1ha-js-DMN" secondAttribute="top" id="sah-si-uI8"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="1ha-js-DMN" secondAttribute="bottom" constant="24" id="5d0-ax-fd1"/>
-                        <constraint firstItem="1ha-js-DMN" firstAttribute="leading" secondItem="1AZ-NW-SLM" secondAttribute="leading" constant="158" id="IM6-FB-wI7"/>
-                        <constraint firstAttribute="trailing" secondItem="1ha-js-DMN" secondAttribute="trailing" constant="157" id="NfD-gR-iGr"/>
-                        <constraint firstItem="1ha-js-DMN" firstAttribute="top" secondItem="1AZ-NW-SLM" secondAttribute="top" constant="14" id="RHo-NO-2hC"/>
+                        <constraint firstAttribute="bottom" secondItem="1ha-js-DMN" secondAttribute="bottom" constant="8" id="5d0-ax-fd1"/>
+                        <constraint firstItem="1ha-js-DMN" firstAttribute="top" secondItem="1AZ-NW-SLM" secondAttribute="top" constant="8" id="RHo-NO-2hC"/>
+                        <constraint firstItem="1ha-js-DMN" firstAttribute="centerX" secondItem="1AZ-NW-SLM" secondAttribute="centerX" id="e4i-IH-KLB"/>
                     </constraints>
                 </view>
             </subviews>
