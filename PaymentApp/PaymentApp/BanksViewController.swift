@@ -20,6 +20,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var paymentMethod: PaymentMethodModel?
     var cardIssuersArray: [CardIssuersModel]?
     let picker = UIPickerView()
+    var pickerSelected: Int?
     let segmentedControl = UISegmentedControl()
     @IBOutlet weak var bankLabel: UILabel!
     
@@ -56,15 +57,16 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         }
     }
     
-    
     @objc func buttonAction(sender: UIButton!) {
         let installmentsViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "InstallmentsViewController") as? InstallmentsViewController
+        installmentsViewController?.amount = amount
+        installmentsViewController?.amountString = amountString
+        installmentsViewController?.paymentMethod = paymentMethod
         
-
+        if let select = pickerSelected {
+            installmentsViewController?.cardIssuers = self.cardIssuersArray?[picker.selectedRow(inComponent: select)]
+        }
         navigationController?.pushViewController(installmentsViewController!, animated: true)
-        
-        
-        
     }
     
     func configurePickerView(){
@@ -104,13 +106,16 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             self.view.endEditing(true)
             bankLabel.text = paymentMethod?.name
             cardViewDetailController.bankName.text = paymentMethod?.name
+            self.pickerSelected = -1
         } else {
             if let bankName = cardIssuersArray?[row].name{
                 bankLabel.text = bankName
                 cardViewDetailController.bankName.text = bankName
+                self.pickerSelected = row
             } else {
                 bankLabel.text = paymentMethod?.name
                 cardViewDetailController.bankName.text = paymentMethod?.name
+                self.pickerSelected = -1
             }
         }
     }
@@ -225,8 +230,6 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             blurAnimation.startAnimation()
             runningAnimation.append(blurAnimation)
         }
-        
-        
     }
     
     func startInteractiveTransition(state: CardState, duration: TimeInterval) {

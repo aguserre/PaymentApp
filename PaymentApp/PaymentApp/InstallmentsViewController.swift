@@ -13,8 +13,10 @@ class InstallmentsViewController: UIViewController {
     var amount: Int?
     var amountString : String?
     var paymentMethod: PaymentMethodModel?
-    var carIssuersArray: CardIssuersModel?
+    var cardIssuers: CardIssuersModel?
 
+    @IBOutlet weak var viewBackgroundDetail: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -165,13 +165,23 @@
                     <view key="view" contentMode="scaleToFill" id="jd7-Jw-oQF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pde-j1-atH">
+                                <rect key="frame" x="0.0" y="436" width="414" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ocn-MN-Ewu"/>
                     </view>
+                    <connections>
+                        <outlet property="viewBackgroundDetail" destination="Pde-j1-atH" id="uZ4-iB-x7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mXQ-0g-JxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="127"/>
+            <point key="canvasLocation" x="3142.0289855072465" y="126.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nOn-h2-Ces">
