@@ -20,6 +20,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var paymentMethod: PaymentMethodModel?
     var carIssuersArray: [CardIssuersModel]?
     let picker = UIPickerView()
+    @IBOutlet weak var bankLabel: UILabel!
     
     var cardViewDetailController: CardDetailViewController!
     var visualEfectView: UIVisualEffectView!
@@ -38,40 +39,62 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCard()
-        picker.delegate = self
+        bankLabel.text = paymentMethod?.name
         let parameters = ["public_key":PUBLIC_KEY_API,
                         "payment_method_id": paymentMethod?.id ?? ""]
         let service = CardIssuersService()
         service.getCardIssuers(parameters: parameters) { (array) in
             self.carIssuersArray = array
+            if array.count > 1 {
+                self.configurePickerView()
+            }
         }
+    }
+    
+    func configurePickerView(){
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
-        
         picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         picker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
-            return 10
-        } else {
-            return 100
-        }
+        return carIssuersArray?.count ?? 2
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
-            return "First \(row)"
+        
+        if carIssuersArray?.count == 0 {
+            return paymentMethod?.name
         } else {
-            return "Second \(row)"
+            if let bankName = carIssuersArray?[row].name{
+                return bankName
+            } else {
+                return "Not Bank support"
+            }
         }
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if carIssuersArray?.count == 0 {
+            self.view.endEditing(true)
+            bankLabel.text = paymentMethod?.name
+        } else {
+            if let bankName = carIssuersArray?[row].name{
+                bankLabel.text = bankName
+            } else {
+                bankLabel.text = paymentMethod?.name
+            }
+        }
+    }
     
     
     func setupCard(){
