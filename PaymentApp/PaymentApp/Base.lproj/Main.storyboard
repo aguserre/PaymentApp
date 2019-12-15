@@ -166,17 +166,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pde-j1-atH">
-                                <rect key="frame" x="0.0" y="436" width="414" height="460"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select installments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rG-ei-v5i">
+                                <rect key="frame" x="10" y="150" width="394" height="29"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qC7-yU-h7r">
+                                <rect key="frame" x="0.0" y="425" width="414" height="471"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-u3-zyK">
+                                <rect key="frame" x="10" y="289.5" width="394" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4Mz-TV-Z0F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvy-2q-clw">
+                                <rect key="frame" x="20" y="317" width="374" height="17.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTh-Mo-wbO">
+                                <rect key="frame" x="20" y="342.5" width="374" height="15.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="13"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1M4-u3-zyK" firstAttribute="leading" secondItem="Ocn-MN-Ewu" secondAttribute="leading" constant="10" id="0WS-Ki-ios"/>
+                            <constraint firstItem="qC7-yU-h7r" firstAttribute="leading" secondItem="Ocn-MN-Ewu" secondAttribute="leading" id="0gJ-Yo-hek"/>
+                            <constraint firstItem="qC7-yU-h7r" firstAttribute="trailing" secondItem="Ocn-MN-Ewu" secondAttribute="trailing" id="5JK-43-LKd"/>
+                            <constraint firstItem="Ocn-MN-Ewu" firstAttribute="trailing" secondItem="4rG-ei-v5i" secondAttribute="trailing" constant="10" id="Asp-nf-XTe"/>
+                            <constraint firstItem="1M4-u3-zyK" firstAttribute="top" secondItem="4rG-ei-v5i" secondAttribute="bottom" constant="110.5" id="BaO-bo-ceH"/>
+                            <constraint firstItem="Ocn-MN-Ewu" firstAttribute="trailing" secondItem="1M4-u3-zyK" secondAttribute="trailing" constant="10" id="D5s-KT-IhE"/>
+                            <constraint firstItem="Bvy-2q-clw" firstAttribute="leading" secondItem="Ocn-MN-Ewu" secondAttribute="leading" constant="20" id="GOB-zS-d3r"/>
+                            <constraint firstItem="Ocn-MN-Ewu" firstAttribute="trailing" secondItem="Bvy-2q-clw" secondAttribute="trailing" constant="20" id="Xgd-oc-Vhm"/>
+                            <constraint firstAttribute="bottom" secondItem="qC7-yU-h7r" secondAttribute="bottom" id="Xgl-TI-GHP"/>
+                            <constraint firstItem="sTh-Mo-wbO" firstAttribute="leading" secondItem="Ocn-MN-Ewu" secondAttribute="leading" constant="20" id="Xwn-Ul-YBg"/>
+                            <constraint firstItem="qC7-yU-h7r" firstAttribute="top" secondItem="4rG-ei-v5i" secondAttribute="bottom" constant="246" id="aDT-hv-8KU"/>
+                            <constraint firstItem="4rG-ei-v5i" firstAttribute="top" secondItem="Ocn-MN-Ewu" secondAttribute="top" constant="106" id="biQ-Tv-pqj"/>
+                            <constraint firstItem="Ocn-MN-Ewu" firstAttribute="trailing" secondItem="sTh-Mo-wbO" secondAttribute="trailing" constant="20" id="cN9-oh-Q1u"/>
+                            <constraint firstItem="Bvy-2q-clw" firstAttribute="top" secondItem="1M4-u3-zyK" secondAttribute="bottom" constant="7.5" id="gSr-WZ-Pzh"/>
+                            <constraint firstItem="sTh-Mo-wbO" firstAttribute="top" secondItem="Bvy-2q-clw" secondAttribute="bottom" constant="8" id="nhk-c3-i6J"/>
+                            <constraint firstItem="4rG-ei-v5i" firstAttribute="leading" secondItem="Ocn-MN-Ewu" secondAttribute="leading" constant="10" id="oq9-se-OlT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ocn-MN-Ewu"/>
                     </view>
                     <connections>
-                        <outlet property="viewBackgroundDetail" destination="Pde-j1-atH" id="uZ4-iB-x7y"/>
+                        <outlet property="amountWhithTnaLabel" destination="Bvy-2q-clw" id="oIU-ju-cgF"/>
+                        <outlet property="installmentResumeLabel" destination="1M4-u3-zyK" id="tea-Nn-vlW"/>
+                        <outlet property="titleLabel" destination="4rG-ei-v5i" id="JJs-F1-EJM"/>
+                        <outlet property="tnaLabel" destination="sTh-Mo-wbO" id="npR-uP-lRz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mXQ-0g-JxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

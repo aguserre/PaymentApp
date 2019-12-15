@@ -10,7 +10,7 @@ import UIKit
 
 class InstallmentsService {
     
-    func getInstallments(parameters:[String:Any], completion: @escaping ([InstallmentModel]) -> Void) {
+    func getInstallments(parameters:[String:Any], completion: @escaping (InstallmentModel) -> Void) {
         let dao = InstallmentDAO()
         dao.getInstallments(parameters: parameters) { (installment) in
             completion(installment)

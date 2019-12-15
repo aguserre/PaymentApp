@@ -11,19 +11,18 @@ import Alamofire
 
 class InstallmentDAO {
     
-    func getInstallments(parameters: [String: Any] ,completion: @escaping ([InstallmentModel]) -> Void) {
+    func getInstallments(parameters: [String: Any] ,completion: @escaping (InstallmentModel) -> Void) {
         Alamofire.request(INSTALLMENTS, method: .get, parameters: parameters).responseJSON { (response) in
             
             if let json = response.result.value as? [[String: Any]] {
-                var arrayInstallments = [InstallmentModel]()
+                var installments = InstallmentModel()
                 
                 for jsonInstallments in json{
                     if let installmentObject = InstallmentModel(JSON: jsonInstallments) {
-                        arrayInstallments.append(installmentObject)
+                        installments = installmentObject
                     }
-                    
                 }
-                completion(arrayInstallments)
+                completion(installments)
             } else {
                 print("errorrrrrrrrr")
             }

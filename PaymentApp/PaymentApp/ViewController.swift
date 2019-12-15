@@ -75,8 +75,8 @@ class ViewController: UIViewController {
     @IBAction func goToPaymentMethod(_ sender: Any) {
         let paymentMethodViewController = PaymentMethodsTableViewController()
         
-        let stringAmount = Double(amount/100) + Double(amount%100)/100
-        paymentMethodViewController.amountString = numberFormatter.string(from: NSNumber(value: stringAmount))
+        let doubleAmount = Double(amount/100) + Double(amount%100)/100
+        paymentMethodViewController.amountString = numberFormatter.string(from: NSNumber(value: doubleAmount))
         paymentMethodViewController.amount = amount
         
         if let paymentMethods = paymentMethod {

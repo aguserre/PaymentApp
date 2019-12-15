@@ -50,9 +50,9 @@ class Issuer : Mappable {
 
 class PlayerCosts : Mappable {
     var installments: Int?
-    var installmentRate: String?
-    var discountRate: String?
-    var reimbursementRate: String?
+    var installmentRate: Int64?
+    var discountRate: Double?
+    var reimbursementRate: Double?
     var labels: [String]?
     var installmentRateCollector: [String]?
     var minAllowedAmount: Double?

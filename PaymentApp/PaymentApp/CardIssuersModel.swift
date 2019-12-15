@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 class CardIssuersModel: Mappable {
+    
     var id: String?
     var name: String?
     var paymentTypeId: String?
