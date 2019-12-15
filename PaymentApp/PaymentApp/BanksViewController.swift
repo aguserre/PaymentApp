@@ -46,9 +46,14 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         let service = CardIssuersService()
         service.getCardIssuers(parameters: parameters) { (array) in
             self.cardIssuersArray = array
+            
             if array.count > 1 {
                 if let firstName = array[0].name {
                     self.bankLabel.text = firstName
+                    self.cardViewDetailController.bankName.text = firstName
+                } else {
+                    self.bankLabel.text = "Select your Bank"
+                    self.cardViewDetailController.bankName.text = self.paymentMethod?.name
                 }
                 self.configurePickerView()
             } else {
@@ -64,7 +69,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         installmentsViewController?.paymentMethod = paymentMethod
         
         if let select = pickerSelected {
-            installmentsViewController?.cardIssuers = self.cardIssuersArray?[picker.selectedRow(inComponent: select)]
+            installmentsViewController?.cardIssuers = self.cardIssuersArray?[select]
         }
         navigationController?.pushViewController(installmentsViewController!, animated: true)
     }
@@ -72,11 +77,12 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func configurePickerView(){
         self.picker.delegate = self
         self.picker.dataSource = self
-        
+        self.pickerSelected = 0
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
         picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         picker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -101,23 +107,12 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if cardIssuersArray?.count == 0 {
-            self.view.endEditing(true)
-            bankLabel.text = paymentMethod?.name
-            cardViewDetailController.bankName.text = paymentMethod?.name
-            self.pickerSelected = -1
-        } else {
             if let bankName = cardIssuersArray?[row].name{
                 bankLabel.text = bankName
                 cardViewDetailController.bankName.text = bankName
                 self.pickerSelected = row
-            } else {
-                bankLabel.text = paymentMethod?.name
-                cardViewDetailController.bankName.text = paymentMethod?.name
-                self.pickerSelected = -1
             }
-        }
+        self.pickerSelected = row
     }
     
     func setupCard(){
