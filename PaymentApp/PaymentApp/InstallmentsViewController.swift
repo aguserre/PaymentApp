@@ -48,7 +48,12 @@ class InstallmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         installmentResumeLabel.text = amountString
-
+        if let amountString = amountString {
+            installmentResumeLabel.text = "1 x " + amountString
+            amountWhithTnaLabel.text = "Total: " + amountString
+        }
+        tnaLabel.text = "CFT_0,00%|TEA_0,00%"
+        
         let parameters = ["public_key":PUBLIC_KEY_API,
                         "payment_method_id": paymentMethod?.id ?? ""]
         let service = InstallmentsService()
