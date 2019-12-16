@@ -110,8 +110,6 @@
 				0F2CA18223A1B13D00986AF9 /* Main.storyboard */,
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18523A1B13E00986AF9 /* Assets.xcassets */,
-				0FA815D823A717230025FE20 /* successAnimation.json */,
-				0F99970023A7303E00A67E73 /* errorAnimation.json */,
 				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 			);
 			path = PaymentApp;
@@ -134,6 +132,8 @@
 			children = (
 				0F2CA17E23A1B13D00986AF9 /* AppDelegate.swift */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
+				0FA815D823A717230025FE20 /* successAnimation.json */,
+				0F99970023A7303E00A67E73 /* errorAnimation.json */,
 			);
 			path = resourses;
 			sourceTree = "<group>";
