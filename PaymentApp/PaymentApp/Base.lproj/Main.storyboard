@@ -427,8 +427,9 @@
         <!--Navigation Controller-->
         <scene sceneID="nOn-h2-Ces">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uMq-mg-h8V" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="uMq-mg-h8V" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="VM3-i5-exs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UUh-3f-vI1">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
