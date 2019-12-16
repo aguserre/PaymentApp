@@ -8,5 +8,6 @@ target 'PaymentApp' do
   pod 'ObjectMapper'
   pod 'Kingfisher'
   pod 'TinyConstraints'
-  
+  pod 'lottie-ios' , '~> 2.0.3'
+
 end

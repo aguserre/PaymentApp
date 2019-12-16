@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		0FA815CE23A5803F0025FE20 /* InstallmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815CD23A5803F0025FE20 /* InstallmentDAO.swift */; };
 		0FA815D023A580DC0025FE20 /* InstallmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815CF23A580DC0025FE20 /* InstallmentsService.swift */; };
 		0FA815D523A584E20025FE20 /* InstallmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815D423A584E20025FE20 /* InstallmentsViewController.swift */; };
+		0FA815D723A7123D0025FE20 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815D623A7123D0025FE20 /* SuccessViewController.swift */; };
+		0FA815D923A717230025FE20 /* successAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FA815D823A717230025FE20 /* successAnimation.json */; };
 		8053120A23A3C80C00DA0050 /* CardIssuersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120923A3C80C00DA0050 /* CardIssuersModel.swift */; };
 		8053120C23A3CBCD00DA0050 /* CardIssuersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */; };
 		8053120E23A3CD4200DA0050 /* CardIssuersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120D23A3CD4200DA0050 /* CardIssuersService.swift */; };
@@ -44,6 +46,8 @@
 		0FA815CD23A5803F0025FE20 /* InstallmentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentDAO.swift; sourceTree = "<group>"; };
 		0FA815CF23A580DC0025FE20 /* InstallmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentsService.swift; sourceTree = "<group>"; };
 		0FA815D423A584E20025FE20 /* InstallmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentsViewController.swift; sourceTree = "<group>"; };
+		0FA815D623A7123D0025FE20 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		0FA815D823A717230025FE20 /* successAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = successAnimation.json; sourceTree = "<group>"; };
 		1FE10345949922D32417C947 /* Pods_PaymentApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271B4474F267542E34327320 /* Pods-PaymentApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp.release.xcconfig"; sourceTree = "<group>"; };
 		5EE48D18980C2BCC8AF903DF /* Pods-PaymentApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				0F2CA18223A1B13D00986AF9 /* Main.storyboard */,
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18523A1B13E00986AF9 /* Assets.xcassets */,
+				0FA815D823A717230025FE20 /* successAnimation.json */,
 				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 			);
 			path = PaymentApp;
@@ -116,6 +121,7 @@
 				80DFB80623A2B19E0011353D /* PaymentMethodsTableViewController.swift */,
 				8053120F23A3CED900DA0050 /* BanksViewController.swift */,
 				0FA815D423A584E20025FE20 /* InstallmentsViewController.swift */,
+				0FA815D623A7123D0025FE20 /* SuccessViewController.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 			dependencies = (
 			);
 			name = PaymentApp;
+			packageProductDependencies = (
+			);
 			productName = PaymentApp;
 			productReference = 0F2CA17B23A1B13D00986AF9 /* PaymentApp.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +241,9 @@
 				Base,
 			);
 			mainGroup = 0F2CA17223A1B13D00986AF9;
+			packageReferences = (
+				0FA815DA23A71E680025FE20 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 0F2CA17C23A1B13D00986AF9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -251,6 +262,7 @@
 				0F2CA18923A1B13E00986AF9 /* LaunchScreen.storyboard in Resources */,
 				80DFB81023A2D5110011353D /* PaymentMethodCell.xib in Resources */,
 				0F2CA18623A1B13E00986AF9 /* Assets.xcassets in Resources */,
+				0FA815D923A717230025FE20 /* successAnimation.json in Resources */,
 				0F2CA18423A1B13D00986AF9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +326,7 @@
 				8053120E23A3CD4200DA0050 /* CardIssuersService.swift in Sources */,
 				8053120C23A3CBCD00DA0050 /* CardIssuersDAO.swift in Sources */,
 				0F2CA18123A1B13D00986AF9 /* ViewController.swift in Sources */,
+				0FA815D723A7123D0025FE20 /* SuccessViewController.swift in Sources */,
 				0FA815CE23A5803F0025FE20 /* InstallmentDAO.swift in Sources */,
 				0F2CA17F23A1B13D00986AF9 /* AppDelegate.swift in Sources */,
 				80DFB80523A291860011353D /* PaymentMethodModel.swift in Sources */,
@@ -522,6 +535,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0FA815DA23A71E680025FE20 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 0F2CA17323A1B13D00986AF9 /* Project object */;
 }

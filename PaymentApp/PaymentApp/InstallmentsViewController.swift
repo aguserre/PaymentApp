@@ -23,6 +23,12 @@ class InstallmentsViewController: UIViewController {
     @IBOutlet weak var tnaLabel: UILabel!
     @IBOutlet weak var amountWhithTnaLabel: UILabel!
     
+    @IBOutlet weak var resumeBackgroundTitleView: UIView!
+    @IBOutlet weak var bankName: UILabel!
+    @IBOutlet weak var paymentMethodLabel: UILabel!
+    @IBOutlet weak var installmentsCountLabel: UILabel!
+    @IBOutlet weak var totalPayLabel: UILabel!
+    
     lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -47,10 +53,24 @@ class InstallmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resumeBackgroundTitleView.layer.cornerRadius = 20
+        resumeBackgroundTitleView.layer.shadowOpacity = 10
+        resumeBackgroundTitleView.layer.shadowOffset = .zero 
+        resumeBackgroundTitleView.layer.shadowRadius = 5
+        resumeBackgroundTitleView.layer.masksToBounds = true
+        self.navigationItem.prompt = "Amount"
+        self.navigationItem.title = amountString
+
+        
+        bankName.text = paymentMethod?.name
+        paymentMethodLabel.text = paymentMethod?.paymentTypeId
         installmentResumeLabel.text = amountString
         if let amountString = amountString {
             installmentResumeLabel.text = "1 x " + amountString
+            installmentsCountLabel.text = "1 x " + amountString
+
             amountWhithTnaLabel.text = "Total: " + amountString
+            totalPayLabel.text = "Total: " + amountString
         }
         tnaLabel.text = "CFT_0,00%|TEA_0,00%"
         
@@ -86,6 +106,14 @@ class InstallmentsViewController: UIViewController {
         NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100).isActive = true
     }
     
+    @IBAction func goToSuccessBtn(_ sender: Any) {
+        let succesViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SuccessViewController") as? SuccessViewController
+        
+        navigationController?.pushViewController(succesViewController!, animated: true)
+        
+    }
+    
+    
     @objc
     func changeValueSc(sender: UISegmentedControl) {
 
@@ -106,11 +134,13 @@ class InstallmentsViewController: UIViewController {
                 totalInstallment = (amountDouble + (amountDouble * amountRateDouble)) / Double(installmentCount)
                 if let installmentTotal = numberFormatter.string(from: NSNumber(value: totalInstallment)){
                     installmentResumeLabel.text = "\(installmentCount) x " + installmentTotal
+                    installmentsCountLabel.text = "\(installmentCount) x " + installmentTotal
                 }
                 
                 totalAmount = (amountDouble + (amountDouble * amountRateDouble))
                 if let amountTotal = numberFormatter.string(from: NSNumber(value: totalAmount)){
                     amountWhithTnaLabel.text = "Total: " + amountTotal
+                    totalPayLabel.text = "Total: " + amountTotal
                 }
                 
                 for i in tnaInfo {
