@@ -73,16 +73,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToPaymentMethod(_ sender: Any) {
-        let paymentMethodViewController = PaymentMethodsTableViewController()
-        
-        let doubleAmount = Double(amount/100) + Double(amount%100)/100
-        paymentMethodViewController.amountString = numberFormatter.string(from: NSNumber(value: doubleAmount))
-        paymentMethodViewController.amount = amount
-        
-        if let paymentMethods = paymentMethod {
-            paymentMethodViewController.paymentMethod = paymentMethods
+        if amount/100 >= 10 {
+            let paymentMethodViewController = PaymentMethodsTableViewController()
+            let doubleAmount = Double(amount/100) + Double(amount%100)/100
+            paymentMethodViewController.amountString = numberFormatter.string(from: NSNumber(value: doubleAmount))
+            paymentMethodViewController.amount = amount
+            
+            if let paymentMethods = paymentMethod {
+                paymentMethodViewController.paymentMethod = paymentMethods
+            }
+            navigationController?.pushViewController(paymentMethodViewController, animated: true)
+        } else {
+            showAlertAmount()
         }
-        navigationController?.pushViewController(paymentMethodViewController, animated: true)
+    }
+    
+    func showAlertAmount(){
+        let alert = UIAlertController(title: "Error", message: "The minimum amount must be 10", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
