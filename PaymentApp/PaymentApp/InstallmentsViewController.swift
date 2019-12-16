@@ -27,7 +27,9 @@ class InstallmentsViewController: UIViewController {
     @IBOutlet weak var tnaLabel: UILabel!
     @IBOutlet weak var amountWhithTnaLabel: UILabel!
     
+    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var resumeBackgroundTitleView: UIView!
+   
     @IBOutlet weak var bankName: UILabel!
     @IBOutlet weak var paymentMethodLabel: UILabel!
     @IBOutlet weak var installmentsCountLabel: UILabel!
@@ -150,12 +152,17 @@ class InstallmentsViewController: UIViewController {
     }
     
     func setUpResumeView(){
+        resumeBackgroundTitleView.layer.masksToBounds = false
         resumeBackgroundTitleView.layer.cornerRadius = 20
         resumeBackgroundTitleView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        resumeBackgroundTitleView.layer.shadowOpacity = 10
-        resumeBackgroundTitleView.layer.shadowOffset = .zero
-        resumeBackgroundTitleView.layer.shadowRadius = 10
-        resumeBackgroundTitleView.layer.masksToBounds = true
+        resumeBackgroundTitleView.layer.shadowOpacity = 0.6
+        resumeBackgroundTitleView.layer.shadowOffset = CGSize(width: 0, height: 8)
+        resumeBackgroundTitleView.layer.shadowRadius = 5
+        
+        confirmButton.layer.masksToBounds = false
+        confirmButton.layer.shadowOpacity = 0.6
+        confirmButton.layer.shadowOffset = CGSize(width: 0, height: -5)
+        confirmButton.layer.shadowRadius = 5
     }
     
     func setUpLabels(){

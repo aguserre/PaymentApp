@@ -343,6 +343,7 @@
                     <connections>
                         <outlet property="amountWhithTnaLabel" destination="Bvy-2q-clw" id="3aC-ao-OTF"/>
                         <outlet property="bankName" destination="M5L-Oh-voX" id="z5R-oW-9KH"/>
+                        <outlet property="confirmButton" destination="dvH-tc-d1c" id="eBQ-sB-j2a"/>
                         <outlet property="installmentResumeLabel" destination="1M4-u3-zyK" id="tea-Nn-vlW"/>
                         <outlet property="installmentsCountLabel" destination="k2T-dH-lyo" id="7r2-qg-VIc"/>
                         <outlet property="paymentMethodLabel" destination="r7l-am-xyq" id="mcv-lK-DO2"/>
