@@ -112,7 +112,6 @@
 				0F2CA18223A1B13D00986AF9 /* Main.storyboard */,
 				0F2CA18723A1B13E00986AF9 /* LaunchScreen.storyboard */,
 				0F2CA18523A1B13E00986AF9 /* Assets.xcassets */,
-				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
@@ -132,6 +131,7 @@
 		0FA815D323A582E50025FE20 /* resourses */ = {
 			isa = PBXGroup;
 			children = (
+				0F2CA18A23A1B13E00986AF9 /* Info.plist */,
 				0FFE32DE23A7F2FB0080C78D /* GoogleService-Info.plist */,
 				0F2CA17E23A1B13D00986AF9 /* AppDelegate.swift */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
@@ -490,7 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QT76JFT465;
-				INFOPLIST_FILE = PaymentApp/Info.plist;
+				INFOPLIST_FILE = PaymentApp/resourses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,7 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QT76JFT465;
-				INFOPLIST_FILE = PaymentApp/Info.plist;
+				INFOPLIST_FILE = PaymentApp/resourses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
