@@ -86,7 +86,7 @@ class InstallmentsViewController: UIViewController {
         NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: titleLabel, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 50).isActive = true
         
-        NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: view.bounds.width - 30).isActive = true
+        NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: view.bounds.width - 100).isActive = true
         NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100).isActive = true
     }
     
@@ -154,16 +154,17 @@ class InstallmentsViewController: UIViewController {
     }
     
     func setUpLabels(){
-        bankName.text = paymentMethod?.name
-        paymentMethodLabel.text = paymentMethod?.paymentTypeId
+        bankName.text = paymentMethod?.name?.uppercased()
+        let paymentTypeIdFormat = paymentMethod?.paymentTypeId?.replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
+        paymentMethodLabel.text = paymentTypeIdFormat?.uppercased()
         installmentResumeLabel.text = amountString
         
         if let amountString = amountString {
             installmentResumeLabel.text = "1 x " + amountString
-            installmentsCountLabel.text = "1 x " + amountString
+            installmentsCountLabel.text = "1 x " + amountString.uppercased()
 
             amountWhithTnaLabel.text = "Total: " + amountString
-            totalPayLabel.text = "Total: " + amountString
+            totalPayLabel.text = "Total: " + amountString.uppercased()
         }
         tnaLabel.text = "CFT_0,00%|TEA_0,00%"
     }

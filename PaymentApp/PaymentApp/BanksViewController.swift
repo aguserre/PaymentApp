@@ -22,6 +22,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     private let picker = UIPickerView()
     private var pickerSelected: Int?
     private let segmentedControl = UISegmentedControl()
+    @IBOutlet weak var bankTitleLabel: UILabel!
     @IBOutlet weak var bankLabel: UILabel!
     
     private var cardViewDetailController: CardDetailViewController!
@@ -64,6 +65,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             }
             self.configurePickerView()
         } else {
+            self.bankTitleLabel.text = "Your select"
             self.bankLabel.text = self.paymentMethod?.name
         }
     }
@@ -86,8 +88,11 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         self.pickerSelected = 0
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
-        picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        picker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        NSLayoutConstraint(item: picker, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: picker, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: bankLabel, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 10).isActive = true
+        
+        NSLayoutConstraint(item: picker, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: view.bounds.width - 10).isActive = true
+        NSLayoutConstraint(item: picker, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 180).isActive = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
