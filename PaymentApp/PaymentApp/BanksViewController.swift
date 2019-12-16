@@ -18,25 +18,25 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var amount: Int?
     var amountString : String?
     var paymentMethod: PaymentMethodModel?
-    var cardIssuersArray: [CardIssuersModel]?
-    let picker = UIPickerView()
-    var pickerSelected: Int?
-    let segmentedControl = UISegmentedControl()
+    private var cardIssuersArray: [CardIssuersModel]?
+    private let picker = UIPickerView()
+    private var pickerSelected: Int?
+    private let segmentedControl = UISegmentedControl()
     @IBOutlet weak var bankLabel: UILabel!
     
-    var cardViewDetailController: CardDetailViewController!
-    var visualEfectView: UIVisualEffectView!
+    private var cardViewDetailController: CardDetailViewController!
+    private var visualEfectView: UIVisualEffectView!
     
-    let cardHeight: CGFloat = 300
-    let cardHandleAreaHeight: CGFloat = 65
+    private let cardHeight: CGFloat = 300
+    private let cardHandleAreaHeight: CGFloat = 65
     
-    var cardVisible = false
+    private var cardVisible = false
     var nextState: CardState {
         return cardVisible ? .colapsed : .expanded
     }
     
-    var runningAnimation = [UIViewPropertyAnimator]()
-    var animationProgressWhenInterrupted: CGFloat = 0
+    private var runningAnimation = [UIViewPropertyAnimator]()
+    private var animationProgressWhenInterrupted: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,19 +49,22 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         let service = CardIssuersService()
         service.getCardIssuers(parameters: parameters) { (array) in
             self.cardIssuersArray = array
-            
-            if array.count > 1 {
-                if let firstName = array[0].name {
-                    self.bankLabel.text = firstName
-                    self.cardViewDetailController.bankName.text = firstName
-                } else {
-                    self.bankLabel.text = "Select your Bank"
-                    self.cardViewDetailController.bankName.text = self.paymentMethod?.name
-                }
-                self.configurePickerView()
+            self.setUpView(arrayCardIssuers: array)
+        }
+    }
+    
+    func setUpView(arrayCardIssuers: [CardIssuersModel]) {
+        if arrayCardIssuers.count > 1 {
+            if let firstName = arrayCardIssuers[0].name {
+                self.bankLabel.text = firstName
+                self.cardViewDetailController.bankName.text = firstName
             } else {
-                self.bankLabel.text = self.paymentMethod?.name
+                self.bankLabel.text = "Select your Bank"
+                self.cardViewDetailController.bankName.text = self.paymentMethod?.name
             }
+            self.configurePickerView()
+        } else {
+            self.bankLabel.text = self.paymentMethod?.name
         }
     }
     
@@ -85,7 +88,6 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         view.addSubview(picker)
         picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         picker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

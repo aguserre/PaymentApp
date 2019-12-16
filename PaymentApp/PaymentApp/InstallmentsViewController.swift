@@ -15,8 +15,10 @@ class InstallmentsViewController: UIViewController {
     var amountString : String?
     var paymentMethod: PaymentMethodModel?
     var cardIssuers: CardIssuersModel?
-    var installments: InstallmentModel?
-    var installmentsCount: [String] = []
+    private var installments: InstallmentModel?
+    private var installmentsCount: [String] = []
+    private var service = InstallmentsService()
+
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var installmentResumeLabel: UILabel!
@@ -53,31 +55,13 @@ class InstallmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resumeBackgroundTitleView.layer.cornerRadius = 20
-        resumeBackgroundTitleView.layer.shadowOpacity = 10
-        resumeBackgroundTitleView.layer.shadowOffset = .zero 
-        resumeBackgroundTitleView.layer.shadowRadius = 5
-        resumeBackgroundTitleView.layer.masksToBounds = true
         self.navigationItem.prompt = "Amount"
         self.navigationItem.title = amountString
-
-        
-        bankName.text = paymentMethod?.name
-        paymentMethodLabel.text = paymentMethod?.paymentTypeId
-        installmentResumeLabel.text = amountString
-        if let amountString = amountString {
-            installmentResumeLabel.text = "1 x " + amountString
-            installmentsCountLabel.text = "1 x " + amountString
-
-            amountWhithTnaLabel.text = "Total: " + amountString
-            totalPayLabel.text = "Total: " + amountString
-        }
-        tnaLabel.text = "CFT_0,00%|TEA_0,00%"
+        setUpResumeView()
+        setUpLabels()
         
         let parameters = ["public_key":PUBLIC_KEY_API,
                         "payment_method_id": paymentMethod?.id ?? ""]
-        let service = InstallmentsService()
-        
         service.getInstallments(parameters: parameters) { (installment) in
             self.installments = installment
             if let playerCostsArray = installment.payerCosts {
@@ -88,17 +72,17 @@ class InstallmentsViewController: UIViewController {
                         self.installmentsCount.append(numberString)
                     }
                 }
-                self.sc()
+                self.setUpSegmentedControl()
             }
         }
     }
     
-    fileprivate func sc(){
+    fileprivate func setUpSegmentedControl(){
         view.addSubview(segmentedControl)
         segmentedControl.height(30)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
+        //constraints
         NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: segmentedControl, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: titleLabel, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 50).isActive = true
         
@@ -112,9 +96,7 @@ class InstallmentsViewController: UIViewController {
         if paymentMethod?.name == "Tarjeta Shopping"{
             succesViewController?.error = true
         }
-        
         navigationController?.pushViewController(succesViewController!, animated: true)
-        
     }
     
     
@@ -153,8 +135,35 @@ class InstallmentsViewController: UIViewController {
                     }
                 }
                 
+            } else {
+                //handle second error (mount)
+
             }
+        } else {
+            //handle first error
         }
     }
+    
+    func setUpResumeView(){
+        resumeBackgroundTitleView.layer.cornerRadius = 20
+        resumeBackgroundTitleView.layer.shadowOpacity = 10
+        resumeBackgroundTitleView.layer.shadowOffset = .zero
+        resumeBackgroundTitleView.layer.shadowRadius = 5
+        resumeBackgroundTitleView.layer.masksToBounds = true
+    }
+    
+    func setUpLabels(){
+        bankName.text = paymentMethod?.name
+        paymentMethodLabel.text = paymentMethod?.paymentTypeId
+        installmentResumeLabel.text = amountString
+        
+        if let amountString = amountString {
+            installmentResumeLabel.text = "1 x " + amountString
+            installmentsCountLabel.text = "1 x " + amountString
 
+            amountWhithTnaLabel.text = "Total: " + amountString
+            totalPayLabel.text = "Total: " + amountString
+        }
+        tnaLabel.text = "CFT_0,00%|TEA_0,00%"
+    }
 }

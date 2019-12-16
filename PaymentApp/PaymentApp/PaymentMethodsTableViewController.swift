@@ -78,9 +78,14 @@ class PaymentMethodsTableViewController: UITableViewController {
             cell.cardImageView.kf.setImage(with: url)
         }
         cell.titleMethodLabel.text = paymentMethod[indexPath.row].name
-        cell.typeMethodLabel.text = paymentMethod[indexPath.row].paymentTypeId
-        //No especifica como poder formatear el Int que envia la API
-        cell.acreditionTimeLabel.text = "Inmediatly"
+        
+        let paymentTypeIdFormat = paymentMethod[indexPath.row].paymentTypeId?.replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
+        cell.typeMethodLabel.text = paymentTypeIdFormat?.uppercased()
+        if paymentMethod[indexPath.row].paymentTypeId == "credit_card" {
+            cell.acreditionTimeLabel.text = "Inmediatly"
+        } else {
+            cell.acreditionTimeLabel.text = "24/48 hs."
+        }
         if let minAmount = paymentMethod[indexPath.row].minAllowedAmount{
             cell.minAllowedAmountLabel.text = intToCurrency(number: minAmount)
         }
@@ -93,7 +98,7 @@ class PaymentMethodsTableViewController: UITableViewController {
     
     func configureEmptyCell(indexPath: IndexPath) ->UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentMethodCell", for: indexPath) as! PaymentMethodCell
-        
+        //If service error, configure empty cell with error
         return cell
     }
     
