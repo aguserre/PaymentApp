@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -71,6 +72,8 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     @objc func buttonAction(sender: UIButton!) {
+        Analytics.logEvent("cardButtonTap", parameters: nil)
+
         let installmentsViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "InstallmentsViewController") as? InstallmentsViewController
         installmentsViewController?.amount = amount
         installmentsViewController?.amountString = amountString
@@ -117,6 +120,8 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        Analytics.logEvent("pickerViewAppear", parameters: nil)
+
             if let bankName = cardIssuersArray?[row].name{
                 bankLabel.text = bankName
                 cardViewDetailController.bankName.text = bankName
@@ -165,6 +170,8 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     @objc
     func handleCardTap(recognizer: UITapGestureRecognizer) {
+        Analytics.logEvent("handleCardTap", parameters: nil)
+
         switch recognizer.state {
             case .ended:
                 animationTransitionIsNeeded(state: nextState, duration: 0.9)
@@ -175,6 +182,8 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     @objc
     func handleCardPan(recognizer: UIPanGestureRecognizer) {
+        Analytics.logEvent("handleCardPan", parameters: nil)
+
         switch recognizer.state {
         case .began:
             startInteractiveTransition(state: nextState, duration: 0.9)

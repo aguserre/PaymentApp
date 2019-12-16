@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import Kingfisher
 
 class PaymentMethodsTableViewController: UITableViewController {
@@ -58,6 +59,8 @@ class PaymentMethodsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Analytics.logEvent("cellPaymentMethodTapped", parameters: ["method":paymentMethod[indexPath.row].name ?? ""])
+
         if paymentMethod.count == 0 {
             return
         } else {

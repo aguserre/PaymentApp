@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import TinyConstraints
 
 class InstallmentsViewController: UIViewController {
@@ -17,6 +18,7 @@ class InstallmentsViewController: UIViewController {
     var cardIssuers: CardIssuersModel?
     private var installments: InstallmentModel?
     private var installmentsCount: [String] = []
+    private var installmentTag: String?
     private var service = InstallmentsService()
 
     
@@ -91,6 +93,8 @@ class InstallmentsViewController: UIViewController {
     }
     
     @IBAction func goToSuccessBtn(_ sender: Any) {
+        Analytics.logEvent("goToSuccesTap", parameters: ["installmentsCount":self.installmentTag ?? "1"])
+
         let succesViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SuccessViewController") as? SuccessViewController
         //select Tarjeta Shopping to force error view
         if paymentMethod?.name == "Tarjeta Shopping"{
@@ -120,6 +124,7 @@ class InstallmentsViewController: UIViewController {
                 totalInstallment = (amountDouble + (amountDouble * amountRateDouble)) / Double(installmentCount)
                 if let installmentTotal = numberFormatter.string(from: NSNumber(value: totalInstallment)){
                     installmentResumeLabel.text = "\(installmentCount) x " + installmentTotal
+                    self.installmentTag = String(installmentCount)
                     installmentsCountLabel.text = "\(installmentCount) x " + installmentTotal
                 }
                 

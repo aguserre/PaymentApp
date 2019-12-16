@@ -19,6 +19,7 @@
 		0FA815D523A584E20025FE20 /* InstallmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815D423A584E20025FE20 /* InstallmentsViewController.swift */; };
 		0FA815D723A7123D0025FE20 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA815D623A7123D0025FE20 /* SuccessViewController.swift */; };
 		0FA815D923A717230025FE20 /* successAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FA815D823A717230025FE20 /* successAnimation.json */; };
+		0FFE32DF23A7F2FB0080C78D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FFE32DE23A7F2FB0080C78D /* GoogleService-Info.plist */; };
 		8053120A23A3C80C00DA0050 /* CardIssuersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120923A3C80C00DA0050 /* CardIssuersModel.swift */; };
 		8053120C23A3CBCD00DA0050 /* CardIssuersDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120B23A3CBCD00DA0050 /* CardIssuersDAO.swift */; };
 		8053120E23A3CD4200DA0050 /* CardIssuersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053120D23A3CD4200DA0050 /* CardIssuersService.swift */; };
@@ -50,6 +51,7 @@
 		0FA815D423A584E20025FE20 /* InstallmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentsViewController.swift; sourceTree = "<group>"; };
 		0FA815D623A7123D0025FE20 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		0FA815D823A717230025FE20 /* successAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = successAnimation.json; sourceTree = "<group>"; };
+		0FFE32DE23A7F2FB0080C78D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1FE10345949922D32417C947 /* Pods_PaymentApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271B4474F267542E34327320 /* Pods-PaymentApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp.release.xcconfig"; sourceTree = "<group>"; };
 		5EE48D18980C2BCC8AF903DF /* Pods-PaymentApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaymentApp/Pods-PaymentApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		0FA815D323A582E50025FE20 /* resourses */ = {
 			isa = PBXGroup;
 			children = (
+				0FFE32DE23A7F2FB0080C78D /* GoogleService-Info.plist */,
 				0F2CA17E23A1B13D00986AF9 /* AppDelegate.swift */,
 				80DFB80223A28F2E0011353D /* ConstantUrlApi.swift */,
 				0FA815D823A717230025FE20 /* successAnimation.json */,
@@ -268,6 +271,7 @@
 				0F2CA18623A1B13E00986AF9 /* Assets.xcassets in Resources */,
 				0FA815D923A717230025FE20 /* successAnimation.json in Resources */,
 				0F2CA18423A1B13D00986AF9 /* Main.storyboard in Resources */,
+				0FFE32DF23A7F2FB0080C78D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class ViewController: UIViewController {
 
@@ -82,6 +83,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToPaymentMethod(_ sender: Any) {
+        Analytics.logEvent("goToPayMethodTapped", parameters: nil)
         if amount/100 >= 10 {
             let paymentMethodViewController = PaymentMethodsTableViewController()
             let doubleAmount = Double(amount/100) + Double(amount%100)/100
@@ -99,6 +101,7 @@ class ViewController: UIViewController {
     }
     
     func showAlertAmount(){
+        Analytics.logEvent("errorMinAmount", parameters: nil)
         let alert = UIAlertController(title: "Error", message: "The minimum amount must be 10", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true)

@@ -8,6 +8,7 @@
 
 import UIKit
 import TinyConstraints
+import FirebaseAnalytics
 import Lottie
 
 class SuccessViewController: UIViewController {
@@ -40,7 +41,8 @@ class SuccessViewController: UIViewController {
         } else {
             animationName = "successAnimation"
         }
-        
+        Analytics.logEvent("succesResult", parameters: ["result":animationName])
+
         let animation = LOTAnimationView(name: animationName)
         animation.frame = successAnimation.frame
         successAnimation.addSubview(animation)
@@ -59,6 +61,7 @@ class SuccessViewController: UIViewController {
     }
     
     @IBAction func goHome(_ sender: Any) {
+        Analytics.logEvent("backHomeFromSuccesView", parameters: nil)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.navigationController?.popToRootViewController(animated: true)
