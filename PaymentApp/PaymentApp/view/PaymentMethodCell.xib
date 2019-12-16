@@ -33,6 +33,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.92158097029999997" green="0.92154628039999997" blue="0.9215698242" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="33.5" id="E8f-jD-00n"/>
                                     <constraint firstItem="0WT-gU-czh" firstAttribute="centerY" secondItem="P6I-5i-T5G" secondAttribute="centerY" id="J71-fL-msj"/>
                                     <constraint firstItem="0WT-gU-czh" firstAttribute="centerX" secondItem="P6I-5i-T5G" secondAttribute="centerX" id="egJ-p0-qGz"/>
                                     <constraint firstAttribute="width" constant="41" id="lvH-ge-AoF"/>
@@ -45,28 +46,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGr-sa-0fS">
-                                <rect key="frame" x="262" y="67.5" width="90" height="10.5"/>
+                                <rect key="frame" x="302" y="67.5" width="50" height="10.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="kio-UU-gLr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min allowed amount:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpm-Nv-g1U">
-                                <rect key="frame" x="176" y="55.5" width="79" height="10.5"/>
+                                <rect key="frame" x="218" y="55.5" width="79" height="10.5"/>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Acredition time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ0-oo-2eA">
-                                <rect key="frame" x="8" y="45.5" width="63" height="10.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Inmediatly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ0-oo-2eA">
+                                <rect key="frame" x="8" y="45" width="40" height="11"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="63" id="bzQ-aQ-Nle"/>
+                                    <constraint firstAttribute="width" constant="40" id="bzQ-aQ-Nle"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max allowed amount:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAD-xv-3eX">
-                                <rect key="frame" x="176" y="67.5" width="81" height="10.5"/>
+                                <rect key="frame" x="216" y="67.5" width="81" height="10.5"/>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +85,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idm-1p-lKq">
-                                <rect key="frame" x="260" y="56" width="92" height="10.5"/>
+                                <rect key="frame" x="302" y="56" width="50" height="10.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="93C-iS-KKt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -97,19 +104,16 @@
                             <constraint firstItem="pQ0-oo-2eA" firstAttribute="leading" secondItem="5xc-5e-Jd1" secondAttribute="leading" constant="8" id="Hpm-DF-qRu"/>
                             <constraint firstItem="P6I-5i-T5G" firstAttribute="top" secondItem="5xc-5e-Jd1" secondAttribute="top" constant="6" id="IJO-Fo-rWW"/>
                             <constraint firstAttribute="trailing" secondItem="ezb-lB-OPd" secondAttribute="trailing" constant="8" id="K85-5L-bUM"/>
-                            <constraint firstItem="cpm-Nv-g1U" firstAttribute="leading" secondItem="5xc-5e-Jd1" secondAttribute="leading" constant="176" id="Ly4-az-8vW"/>
+                            <constraint firstItem="pQ0-oo-2eA" firstAttribute="top" secondItem="P6I-5i-T5G" secondAttribute="bottom" constant="5.5" id="RPt-ox-lmV"/>
                             <constraint firstItem="4yv-Si-4Vs" firstAttribute="leading" secondItem="P6I-5i-T5G" secondAttribute="trailing" constant="6" id="S8C-Y6-upP"/>
-                            <constraint firstItem="LAD-xv-3eX" firstAttribute="leading" secondItem="5xc-5e-Jd1" secondAttribute="leading" constant="176" id="SoN-fb-bI6"/>
                             <constraint firstItem="P6I-5i-T5G" firstAttribute="leading" secondItem="5xc-5e-Jd1" secondAttribute="leading" constant="8" id="TnG-Mq-Zgd"/>
                             <constraint firstAttribute="trailing" secondItem="MGr-sa-0fS" secondAttribute="trailing" constant="8" id="WW1-wP-jRW"/>
+                            <constraint firstAttribute="bottom" secondItem="pQ0-oo-2eA" secondAttribute="bottom" constant="30" id="WoA-hQ-4zP"/>
                             <constraint firstItem="MGr-sa-0fS" firstAttribute="leading" secondItem="LAD-xv-3eX" secondAttribute="trailing" constant="5" id="Yqu-0t-ccJ"/>
                             <constraint firstItem="4yv-Si-4Vs" firstAttribute="top" secondItem="ezb-lB-OPd" secondAttribute="bottom" constant="1" id="aMu-Ar-K7z"/>
                             <constraint firstItem="LAD-xv-3eX" firstAttribute="top" secondItem="cpm-Nv-g1U" secondAttribute="bottom" constant="1.5" id="fqT-Wv-LEt"/>
-                            <constraint firstAttribute="bottom" secondItem="pQ0-oo-2eA" secondAttribute="bottom" constant="30" id="idP-5w-pwp"/>
                             <constraint firstItem="idm-1p-lKq" firstAttribute="leading" secondItem="cpm-Nv-g1U" secondAttribute="trailing" constant="5" id="mFi-gW-bHx"/>
-                            <constraint firstItem="pQ0-oo-2eA" firstAttribute="top" secondItem="P6I-5i-T5G" secondAttribute="bottom" constant="6" id="mTh-tX-gi5"/>
                             <constraint firstAttribute="bottom" secondItem="LAD-xv-3eX" secondAttribute="bottom" constant="8" id="oSr-h5-cLC"/>
-                            <constraint firstItem="pQ0-oo-2eA" firstAttribute="top" secondItem="4yv-Si-4Vs" secondAttribute="bottom" constant="5" id="p4h-5S-wbv"/>
                         </constraints>
                     </view>
                 </subviews>
