@@ -27,7 +27,7 @@ class PaymentMethodsTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "PaymentMethodCell")
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        self.navigationItem.prompt = "Amount"
+        self.navigationItem.prompt = "Original amount"
         self.navigationItem.title = amountString
     }
 

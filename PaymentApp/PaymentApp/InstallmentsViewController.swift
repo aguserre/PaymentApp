@@ -55,7 +55,7 @@ class InstallmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.prompt = "Amount"
+        self.navigationItem.prompt = "Original amount"
         self.navigationItem.title = amountString
         setUpResumeView()
         setUpLabels()
@@ -131,7 +131,7 @@ class InstallmentsViewController: UIViewController {
                 
                 for i in tnaInfo {
                     if i.contains("CFT"){
-                        tnaLabel.text = i
+                        tnaLabel.text = i.replacingOccurrences(of: "_", with: " ")
                     }
                 }
                 
@@ -166,6 +166,6 @@ class InstallmentsViewController: UIViewController {
             amountWhithTnaLabel.text = "Total: " + amountString
             totalPayLabel.text = "Total: " + amountString.uppercased()
         }
-        tnaLabel.text = "CFT_0,00%|TEA_0,00%"
+        tnaLabel.text = "CFT 0,00%|TEA 0,00%"
     }
 }

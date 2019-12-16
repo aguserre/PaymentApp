@@ -42,6 +42,15 @@ class ViewController: UIViewController {
         configureButonNext()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        amount = 0
+        currenciCodeTextField.text = ""
+        if currenciCodeTextField.text == ""{
+            amount = amount/10
+        }
+    }
+    
     func configureNavigationBar(){
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -82,6 +91,7 @@ class ViewController: UIViewController {
             if let paymentMethods = paymentMethod {
                 paymentMethodViewController.paymentMethod = paymentMethods
             }
+            currenciCodeTextField.text = updateTextField()
             navigationController?.pushViewController(paymentMethodViewController, animated: true)
         } else {
             showAlertAmount()

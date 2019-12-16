@@ -43,7 +43,7 @@ class BanksViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         super.viewDidLoad()
         setupCard()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationItem.prompt = "Amount"
+        self.navigationItem.prompt = "Original amount"
         self.navigationItem.title = amountString
         let parameters = ["public_key":PUBLIC_KEY_API,
                         "payment_method_id": paymentMethod?.id ?? ""]
