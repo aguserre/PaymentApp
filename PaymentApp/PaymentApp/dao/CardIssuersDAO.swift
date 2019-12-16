@@ -21,11 +21,8 @@ class CardIssuersDAO {
                     if let issuersObject = CardIssuersModel(JSON: jsonCardIssuers) {
                         arrayCardIssuers.append(issuersObject)
                     }
-                    
                 }
                 completion(arrayCardIssuers)
-            } else {
-                print("errorrrrrrrrr")
             }
         }
     }

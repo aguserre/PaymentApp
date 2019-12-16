@@ -24,6 +24,7 @@ class PaymentMethodsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib.init(nibName: "PaymentMethodCell", bundle: nil)
+        self.tableView.separatorColor = UIColor.clear
         self.tableView.register(nib, forCellReuseIdentifier: "PaymentMethodCell")
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         

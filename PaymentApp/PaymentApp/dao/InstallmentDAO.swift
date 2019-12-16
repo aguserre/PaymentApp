@@ -23,8 +23,6 @@ class InstallmentDAO {
                     }
                 }
                 completion(installments)
-            } else {
-                print("errorrrrrrrrr")
             }
         }
     }

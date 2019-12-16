@@ -21,11 +21,8 @@ class PaymentMethodDAO {
                     if let payObject = PaymentMethodModel(JSON: jsonPayMethod) {
                         arrayPaymentsMethod.append(payObject)
                     }
-                    
                 }
                 completion(arrayPaymentsMethod)
-            } else {
-                print("errorrrrrrrrr")
             }
         }
     }
