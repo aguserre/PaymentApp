@@ -11,11 +11,14 @@ import TinyConstraints
 import Lottie
 
 class SuccessViewController: UIViewController {
+    
+    // to force error select Tarjeta Shopping
+    var error = false
+    
     @IBOutlet weak var backgroundLottieView: UIView!
     @IBOutlet weak var successAnimation: UIView!
     @IBOutlet weak var goHomeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +29,24 @@ class SuccessViewController: UIViewController {
     }
     
     func playAnimation(){
+        var animationName = ""
+        if error {
+            animationName = "errorAnimation"
+            titleLabel.text = "An error ocurred!"
+            goHomeButton.titleLabel?.text = "Try again"
+        } else {
+            animationName = "successAnimation"
+        }
         
-        let animationLottie = LOTAnimationView(name: "successAnimation")
-        animationLottie.frame = successAnimation.frame
-        successAnimation.addSubview(animationLottie)
-        animationLottie.play(completion: { finished in
+        let animation = LOTAnimationView(name: animationName)
+        animation.frame = successAnimation.frame
+        successAnimation.addSubview(animation)
+        animation.play(completion: { finished in
             print(finished)
             self.setView(view: self.goHomeButton, hidden: false)
             self.setView(view: self.titleLabel, hidden: false)
-
-            
         })
-        animationLottie.loopAnimation = false
-        
-        
-        
+        animation.loopAnimation = false
     }
     
     func setView(view: UIView, hidden: Bool) {
@@ -50,8 +56,7 @@ class SuccessViewController: UIViewController {
     }
     
     @IBAction func goHome(_ sender: Any) {
-        print("go home")
-
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }

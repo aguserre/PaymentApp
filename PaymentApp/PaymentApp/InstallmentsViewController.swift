@@ -108,6 +108,10 @@ class InstallmentsViewController: UIViewController {
     
     @IBAction func goToSuccessBtn(_ sender: Any) {
         let succesViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SuccessViewController") as? SuccessViewController
+        //select Tarjeta Shopping to force error view
+        if paymentMethod?.name == "Tarjeta Shopping"{
+            succesViewController?.error = true
+        }
         
         navigationController?.pushViewController(succesViewController!, animated: true)
         
