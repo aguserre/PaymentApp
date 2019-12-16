@@ -56,6 +56,7 @@ class SuccessViewController: UIViewController {
     }
     
     @IBAction func goHome(_ sender: Any) {
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.popToRootViewController(animated: true)
     }
     
