@@ -24,7 +24,10 @@ class SuccessViewController: UIViewController {
         super.viewDidLoad()
         goHomeButton.isHidden = true
         titleLabel.isHidden = true
+        
         self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+
         playAnimation()
     }
     
@@ -57,6 +60,7 @@ class SuccessViewController: UIViewController {
     
     @IBAction func goHome(_ sender: Any) {
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.navigationController?.popToRootViewController(animated: true)
     }
     

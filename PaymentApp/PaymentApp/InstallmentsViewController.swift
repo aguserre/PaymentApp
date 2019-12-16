@@ -146,9 +146,10 @@ class InstallmentsViewController: UIViewController {
     
     func setUpResumeView(){
         resumeBackgroundTitleView.layer.cornerRadius = 20
+        resumeBackgroundTitleView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         resumeBackgroundTitleView.layer.shadowOpacity = 10
         resumeBackgroundTitleView.layer.shadowOffset = .zero
-        resumeBackgroundTitleView.layer.shadowRadius = 5
+        resumeBackgroundTitleView.layer.shadowRadius = 10
         resumeBackgroundTitleView.layer.masksToBounds = true
     }
     
